@@ -5,7 +5,7 @@
 
 
 # Praktikum 2.1
-(Images/Praktikum1_1.png)
+![Tampilkan informasi cpu](Images/Praktikum1_1.png)
 Praktikum 1
 Cpu = 1
 threads = 1

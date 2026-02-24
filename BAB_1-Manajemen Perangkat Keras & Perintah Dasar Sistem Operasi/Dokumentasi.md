@@ -6,10 +6,14 @@
 
 # Praktikum 2.1
 1. Melihat informasi CPU
-![Tampilkan informasi cpu](Images/Praktikum1_1.png)
+![Tampilkan informasi cpu](Images/Praktikum1_1.png)<break>
 
 2. Melihat Penggunaan Memori
-![Tampilkan informasi cpu](Images/Praktikum1_2.png)
+![Tampilkan penggunaan memori](Images/Praktikum1_2.png)<break>
+
+3. Informasi DMI
+![Tampilkan penggunaan memori](Images/Praktikum1_3.png)<break>
+
 Praktikum 1 <break>
 Cpu = 1
 threads = 1

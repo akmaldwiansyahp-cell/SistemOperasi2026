@@ -6,7 +6,7 @@
 ## 1.10.1. Latihan Konseptual
 1. Jelaskan 5 fungsi utama sistem operasi dengan contoh konkret dari minimal 2 OS berbeda (Windows, macOS, atau Linux).<br>
 **jawab:** <br>  
->1.Process Management  
+1.Process Management  
 <b>Sistem operasi bertanggung jawab untuk:</b>  
 • Process scheduling — Menentukan proses mana yang mendapat CPU time  
 • Process creation dan termination — Membuat dan mengakhiri proses  

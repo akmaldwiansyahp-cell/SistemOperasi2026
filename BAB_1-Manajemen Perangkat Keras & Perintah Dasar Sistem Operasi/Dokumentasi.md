@@ -5,6 +5,7 @@
 
 
 # Praktikum 2.1
+1. Melihat informasi CPU
 ![Tampilkan informasi cpu](Images/Praktikum1_1.png)
 Praktikum 1
 Cpu = 1

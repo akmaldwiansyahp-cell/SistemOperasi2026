@@ -15,13 +15,13 @@
 ![Tampilkan penggunaan memori](Images/Praktikum1_3.png)<break>
 
 Praktikum 1 <break>
-Cpu = 1
-threads = 1
-core = 3
-RAM = 2.9 Gi
-swap = 0
+Cpu = 1 <break>
+threads = 1 <break>
+core = 3 <break>
+RAM = 2.9 Gi <break>
+swap = 0 <break>
 Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang digunakan oleh komputer untuk menyimpan data, sedangkan swap adalah storage yang digunakan sebagai
-memori virtual cadangan saat RAM mulai penuh
+memori virtual cadangan saat RAM mulai penuh<break>
 
 Praktikum 2
 Nama Perangkat = Intel Corporation 82801AA AC'97 Audio Controller

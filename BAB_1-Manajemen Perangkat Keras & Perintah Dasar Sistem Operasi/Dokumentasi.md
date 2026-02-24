@@ -129,16 +129,16 @@ Perbedaan = character device memasukkan/mengeluarkan data satu karakter sekaligu
 
 ## Praktikum 2.9
 
-1. grep sederhana
+1. grep sederhana<br>
 ![Tampilkan](Images/Praktikum9_1.png)<br>
 
-2. grep case-insensitive
+2. grep case-insensitive<br>
 ![Tampilkan](Images/Praktikum9_2.png)<br>
 
-3. grep dengan nomor baris
+3. grep dengan nomor baris<br>
 ![Tampilkan](Images/Praktikum9_3.png)<br>
 
-4. grep invert match
+4. grep invert match<br>
 ![Tampilkan](Images/Praktikum9_4.png)<br>
 
 **Latihan 2.4**<br>
@@ -150,7 +150,7 @@ WARN dari data.log. (Hint: gunakan grep -E dengan pola alternatif)<br>
 
 ## Praktikum 2.10
 
-1. Membuat file config latihan
+1. Membuat file config latihan<br>
 ![Tampilkan](Images/Praktikum10_1.png)<br>
 
 2. sed substitusi tanpa in-place
@@ -164,7 +164,7 @@ WARN dari data.log. (Hint: gunakan grep -E dengan pola alternatif)<br>
 
 ## Praktikum 2.11
 
-1. Output df -h
+1. Output df -h<br>
 ![Tampilkan](Images/Praktikum11_1.png)<br>
 
 2. awk print kolom tertentu
@@ -191,16 +191,16 @@ WARN dari data.log. (Hint: gunakan grep -E dengan pola alternatif)<br>
 1. Membuat proses dummy
 ![Tampilkan](Images/Praktikum14_1.png)<br>
 
-2. Mencari PID sleep
+2. Mencari PID sleep<br>
 ![Tampilkan](Images/Praktikum14_2.png)<br>
 
 3. Mengirim SIGTERM
 ![Tampilkan](Images/Praktikum14_3.png)<br>
 
-4. Verifikasi proses sudah berhenti
+4. Verifikasi proses sudah berhenti<br>
 ![Tampilkan](Images/Praktikum14_4.png)<br>
 
-5. Mengirim SIGKILL 
+5. Mengirim SIGKILL <br>
 ![Tampilkan](Images/Praktikum14_5.png)<br>
 
 ## Praktikum 2.15
@@ -211,7 +211,7 @@ WARN dari data.log. (Hint: gunakan grep -E dengan pola alternatif)<br>
 2. Cek ukuran direktori (contoh /var)
 ![Tampilkan](Images/Praktikum15_2.png)<br>
 
-3. Cek load average
+3. Cek load average<br>
 ![Tampilkan](Images/Praktikum15_3.png)<br>
 
 4. Service yang gagal
@@ -229,7 +229,7 @@ WARN dari data.log. (Hint: gunakan grep -E dengan pola alternatif)<br>
 ![Tampilkan](Images/Praktikum16_2.png)<br>
 
 3. Cek port listening
-![Tampilkan](Images/Praktikum1_3.png)<br>
+![Tampilkan](Images/Praktikum16_3.png)<br>
 
 **Latihan 2.5**<br>
 

@@ -269,11 +269,11 @@ Sebelum<br>
 ![Tampilkan dafta perangkat pci](Images/2D_sebelum.png)<br>
 
 Sesudah<br>
-![Tampilkan dafta perangkat pci](Images/2D_sesudah)<br>
+![Tampilkan dafta perangkat pci](Images/2D_sesudah.png)<br>
 
 2.E Gunakan df -h lalu awk untuk menampilkan filesystem yang penggunaan disk di atas 70%.<br>
 **jawab:** <br>
-![Tampilkan dafta perangkat pci](Images/2E)<br>
+![Tampilkan dafta perangkat pci](Images/2E.png)<br>
 
 2.F Jalankan sleep 600 &. Temukan PID-nya dengan ps. Hentikan dengan SIGTERM. Jelaskan beda SIGTERM vs SIGKILL.<br>
 **jawab:** <br>
@@ -281,5 +281,5 @@ Perbedaan dari SIGTERM dan SIGKILL adalah SIGTERM menutup file secara aman, seda
 
 2.G Gunakan systemctl –failed. Jika tidak ada yang gagal, pilih satu service aktif (misal ssh) dan tampilkan status serta 30 baris log terakhirnya.<br>
 **jawab:** <br>
-![Tampilkan dafta perangkat pci](Images/2G)<br>
+![Tampilkan dafta perangkat pci](Images/2G.png)<br>
 

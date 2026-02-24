@@ -17,13 +17,13 @@ proses
 • Windows: Task Manager menampilkan proses yang berjalan dan penggunaan
 sumber daya   
 • Linux: Perintah ps, top, dan htop untuk memantau proses  
-• macOS: Activity Monitor untuk mengelola proses<br>
+• macOS: Activity Monitor untuk mengelola proses<br><br>
 2.Memory Management  
 <b>Fungsi memory management meliputi:</b>  
 • Memory allocation — Memberikan memori ke proses yang membutuhkan  
 • Virtual memory — Menggunakan disk sebagai extension dari RAM  
 • Memory protection — Mencegah satu proses mengakses memori proses lain  
-• Paging dan swapping — Teknik untuk optimasi penggunaan memori<br>
+• Paging dan swapping — Teknik untuk optimasi penggunaan memori<br><br>
 3.File Management  
 <b>Sistem operasi menyediakan:</b>  
 • Organisasi file system — Struktur hirarkis (direktori, subdirektori)
@@ -33,7 +33,7 @@ sumber daya
 <b>Contoh file systems:</b>  
 • Windows: NTFS (New Technology File System)  
 • macOS: APFS (Apple File System)  
-• Linux: ext4, XFS, Btrfs<br>
+• Linux: ext4, XFS, Btrfs<br><br>
 4.I/O Management  
 <b>Manajemen Input/Output mencakup:</b>  
 • Device drivers — Perangkat lunak untuk berkomunikasi dengan perangkat
@@ -44,7 +44,7 @@ keras
 Security dan Protection  
 <b>Contoh Impelentasi:</b>
 * Windows: Saat kita memasukkan flashdisk USB, Windows secara otomatis mendeteksi perangkat tersebut dan menggunakan driver yang sesuai (misalnya usbstor.sys) untuk berkomunikasi dengan perangkat keras. Proses ini terjadi di latar belakang tanpa perlu campur tangan pengguna.  
-* Linux: Di Linux, ketika perangkat baru seperti printer atau scanner terhubung melalui USB, kernel menggunakan driver seperti usbcore dan usb-storage untuk mengakses perangkat. Pengguna juga bisa melihat daftar driver yang digunakan melalui perintah lsmod atau melihat perangkat di /dev.<br>
+* Linux: Di Linux, ketika perangkat baru seperti printer atau scanner terhubung melalui USB, kernel menggunakan driver seperti usbcore dan usb-storage untuk mengakses perangkat. Pengguna juga bisa melihat daftar driver yang digunakan melalui perintah lsmod atau melihat perangkat di /dev.<br><br>
 5. Aspek keamanan meliputi:  
 • Authentication — Verifikasi identitas pengguna (password, biometrik)  
 • Authorization — Kontrol akses ke sumber daya berdasarkan izin (permissions)  
@@ -53,7 +53,7 @@ Security dan Protection
 <b>Contoh Impelemntasi:</b>  
 • Windows: Windows memiliki fitur BitLocker yang digunakan untuk mengenkripsi seluruh drive. Misalnya, jika laptop dicuri, data di dalamnya tetap aman karena tidak bisa diakses tanpa kunci pemulihan atau password.  
 • Linux: Di Linux, pengguna bisa menggunakan LUKS (Linux Unified Key Setup) untuk enkripsi disk. Saat instalasi Ubuntu, pengguna bisa memilih opsi Encrypt the entire disk untuk melindungi data.
-<br>
+<br><br>
 2. Kapan sebaiknya menggunakan Windows vs Linux vs macOS? Analisis berdasarkan use case: gaming, development, server, creative work, dan enterprise.<br>
 **jawab:** <br>
 Ketiga Sistem Operasi tersebut memiliki keunikan masing masing dan kegunaan masing masing, untuk user friendly dan compatibility yang besar, windows merupakan Operating System yang layak untuk gaming, presentasi maupun daily-use. Sedangkan linux memiliki kelebihan di customizability, development dan server, dengan bentuk yang sederhana, linux tidak perlu memakan banyak tenaga untuk perangkat seperti laptop. Dan untuk creative work dan enterprise, MacOS merupakan pillihan yang paling bagus dikarenakan memiliki ecosystem yang bagus dibandingkan kedua OS lainnya. Mudah untuk mengirim dan menerima dengan aplikasi seperti apple airdrop.<br>

@@ -49,7 +49,7 @@ Security dan Protection
 • Authentication — Verifikasi identitas pengguna (password, biometrik)  
 • Authorization — Kontrol akses ke sumber daya berdasarkan izin (permissions)  
 • Encryption — Proteksi data (BitLocker di Windows, FileVault di macOS)  
-• Auditing — Pencatatan aktivitas sistem untuk pemantauan keamanan
+• Auditing — Pencatatan aktivitas sistem untuk pemantauan keamanan<br>
 <b>Contoh Impelemntasi:</b>  
 • Windows: Windows memiliki fitur BitLocker yang digunakan untuk mengenkripsi seluruh drive. Misalnya, jika laptop dicuri, data di dalamnya tetap aman karena tidak bisa diakses tanpa kunci pemulihan atau password.  
 • Linux: Di Linux, pengguna bisa menggunakan LUKS (Linux Unified Key Setup) untuk enkripsi disk. Saat instalasi Ubuntu, pengguna bisa memilih opsi Encrypt the entire disk untuk melindungi data.
@@ -84,6 +84,14 @@ Setelah instalasi Ubuntu Server, lakukan tasks berikut:<br>
 6. Check memory dengan free -h<br>
 7. Dokumentasikan output dari setiap command<br>
 
+![Tampilkan dafta perangkat pci](Images1/7.png)<br>
+![Tampilkan dafta perangkat pci](Images1/8.png)<br>
+![Tampilkan dafta perangkat pci](Images1/9.png)<br>
+![Tampilkan dafta perangkat pci](Images1/10.png)<br>
+![Tampilkan dafta perangkat pci](Images1/11.png)<br>
+![Tampilkan dafta perangkat pci](Images1/12.png)<br>
+![Tampilkan dafta perangkat pci](Images1/13.png)<br>
+
 
 Eksplorasi sistem yang baru diinstall:<br>
 1. Tampilkan informasi OS: cat /etc/os-release<br>
@@ -97,9 +105,27 @@ Eksplorasi sistem yang baru diinstall:<br>
 
 Ceritakan pengalaman Anda dengan sistem operasi:<br>
 1. Sistem operasi apa yang Anda gunakan sehari-hari? (Windows, macOS, Linux, atau lainnya)<br>
+**Jawab:**<br>
+Windows.<br>
 2. Berapa lama Anda menggunakan sistem operasi tersebut?<br>
+**Jawab:**<br>
+Pertamakali menggunakan Windows adalah saat pertama kali saya memegang laptop yaitu 
 3. Apa yang Anda sukai dari sistem operasi tersebut?<br>
+**Jawab:**<br>
+Sistem Operasi bisa kompatibel dengan berbagai aplikasi jadi tidak perlu pindah pindah, dan juga sangat user friendly<br>
 4. Apa tantangan atau masalah yang pernah Anda hadapi?<br>
+**Jawab:**<br>
+Tantangan yang saya hadapi ketika menggunakan windows adalah banyak nya bloatware yang terinstall pada OS ini, yang membuat device saya lemot semua. Juga banyak update yang membuat windows semakin buruk dari sebelumnya.<br>
 5. Apakah Anda pernah menggunakan sistem operasi lain? Bandingkan pengalaman Anda.<br>
+**Jawab:**<br>
+Sejauh ini tidak pernah, hal terdekat adalah pelajaran Sistem Operasi ini. menurut saya ubuntu server memang sulit untuk dinavigasi dibandingkan windows, tetapi saya tau bahwa kegunaan seperti ini dibutuhkan pada bidang server server umumnya.
 6. Setelah mempelajari bab ini, apakah ada sistem operasi lain yang ingin Anda coba? Mengapa?<br>
 Tulis refleksi Anda dalam 300-500 kata disertai dengan dokumentasi.<br>
+**Jawab:**<br>
+Setelah mempelajari bab mengenai konsep dasar sistem operasi, arsitektur kernel, serta praktik instalasi Ubuntu Server, saya menjadi lebih memahami bahwa setiap sistem operasi memiliki filosofi dan tujuan desain yang berbeda. Selama ini saya menggunakan Windows sebagai sistem operasi utama karena kemudahan penggunaan dan kompatibilitas aplikasinya yang luas. Namun, setelah mempelajari materi ini, ada beberapa sistem operasi lain yang ingin saya coba, khususnya distro Linux seperti Ubuntu Desktop, Fedora, dan Arch Linux, serta macOS.<br>
+<br>
+Sistem operasi pertama yang ingin saya coba lebih dalam adalah Ubuntu versi Desktop. Setelah berhasil menginstal Ubuntu Server 22.04 LTS di VirtualBox dan menjalankan beberapa perintah seperti neofetch, df -h, dan free -h, saya mulai merasa lebih familiar dengan environment Linux. Namun, karena Ubuntu Server berbasis CLI (Command Line Interface), saya ingin merasakan pengalaman menggunakan Linux dengan GUI untuk kebutuhan sehari-hari seperti browsing, coding, dan manajemen file. Saya tertarik melihat bagaimana performa dan stabilitasnya dibandingkan Windows, terutama dari segi manajemen resource dan minimnya bloatware.<br>
+<br>
+Selain itu, saya juga tertarik mencoba Fedora. Berdasarkan materi, Fedora dikenal lebih “cutting-edge” dan sering menghadirkan teknologi terbaru lebih cepat dibanding distro lain. Hal ini membuat saya penasaran bagaimana rasanya menggunakan sistem yang lebih up-to-date, terutama untuk development. Fedora juga banyak digunakan oleh developer dan memiliki dukungan kuat dari komunitas Red Hat.<br>
+<br>
+Sistem operasi lain yang cukup menantang dan ingin saya eksplorasi adalah Arch Linux. Arch dikenal dengan filosofi DIY (Do It Yourself) dan instalasi manual yang memberi kontrol penuh kepada pengguna. Walaupun terdengar sulit, saya merasa mencoba Arch akan meningkatkan pemahaman saya tentang partisi, bootloader, hingga konfigurasi sistem dari nol. Ini akan membantu saya memahami bagaimana kernel dan user space bekerja secara lebih mendalam.<br>

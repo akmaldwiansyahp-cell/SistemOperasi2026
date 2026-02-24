@@ -15,11 +15,11 @@
 ![Tampilkan penggunaan memori](Images/Praktikum1_3.png)<break>
 
 Praktikum 1 <break>
-Cpu = 1 <break>
-threads = 1 <break>
-core = 3 <break>
-RAM = 2.9 Gi <break>
-swap = 0 <break>
+* Cpu = 1 <break>
+* threads = 1 <break>
+* core = 3 <break>
+* RAM = 2.9 Gi <break>
+* swap = 0 <break>
 Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang digunakan oleh komputer untuk menyimpan data, sedangkan swap adalah storage yang digunakan sebagai
 memori virtual cadangan saat RAM mulai penuh<break>
 

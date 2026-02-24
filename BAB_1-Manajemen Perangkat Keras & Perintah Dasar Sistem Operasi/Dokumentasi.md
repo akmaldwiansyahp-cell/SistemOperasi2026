@@ -6,44 +6,77 @@
 
 ## Praktikum 2.1
 1. Melihat informasi CPU
-![Tampilkan informasi cpu](Images/Praktikum1_1.png)<break>
+![Tampilkan informasi cpu](Images/Praktikum1_1.png)<br>
 
 2. Melihat Penggunaan Memori
-![Tampilkan penggunaan memori](Images/Praktikum1_2.png)<break>
+![Tampilkan penggunaan memori](Images/Praktikum1_2.png)<br>
 
 3. Informasi DMI
-![Informasi DMI](Images/Praktikum1_3.png)<break>
+![Informasi DMI](Images/Praktikum1_3.png)<br>
 
-Latihan 2.1<br>
-Catat: (1) jumlah CPU(s), core/thread, (2) total RAM, (3) total swap. Jelaskan perbedaan RAM vs swap dalam 2–3 kalimat.<break>
-* Cpu = 1 <break>
-* threads = 1 <break>
-* core = 3 <break>
-* RAM = 2.9 Gi <break>
-* swap = 0 <break>
-* Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang digunakan oleh komputer untuk menyimpan data, sedangkan swap adalah storage yang digunakan sebagai memori virtual cadangan saat RAM mulai penuh<break>
+**Latihan 2.1**<br>
+Catat: (1) jumlah CPU(s), core/thread, (2) total RAM, (3) total swap. Jelaskan perbedaan RAM vs swap dalam 2–3 kalimat.<br>
+* Cpu = 1 <br>
+* threads = 1 <br>
+* core = 3 <br>
+* RAM = 2.9 Gi <br>
+* swap = 0 <br>
+Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang digunakan oleh komputer untuk menyimpan data, sedangkan swap adalah storage yang digunakan sebagai memori virtual cadangan saat RAM mulai penuh<br>
 
 ## Praktikum 2.2
 1. Daftar perangkat PCI
-![Tampilkan dafta perangkat pci](Images/Praktikum2_1.png)<break>
+![Tampilkan dafta perangkat pci](Images/Praktikum2_1.png)<br>
 
 2.  Melihat driver perangkat PCI
-![Tampilkan dafta perangkat pci](Images/Praktikum2_2.png)<break>
+![Tampilkan dafta perangkat pci](Images/Praktikum2_2.png)<br>
 
 3. Mencari info NIC dan drivernya
-![Tampilkan dafta perangkat pci](Images/Praktikum2_3.png)<break>
+![Tampilkan dafta perangkat pci](Images/Praktikum2_3.png)<br>
 
 4. Daftar perangkat USB
-![Tampilkan dafta perangkat pci](Images/Praktikum2_4.png)<break>
+![Tampilkan dafta perangkat pci](Images/Praktikum2_4.png)<br>
 
 5. Topologi perangkat USB
-![Tampilkan dafta perangkat pci](Images/Praktikum2_5.png)<break>
+![Tampilkan dafta perangkat pci](Images/Praktikum2_5.png)<br>
 
-Praktikum 2
-Nama Perangkat = Intel Corporation 82801AA AC'97 Audio Controller
-Device ID = 8086:2415
-Kernel Module = snd_intel8x0
-Deskripsi = Digunakan untuk mengkontrol Audio
+**Latihan 2.2**<br>
+Temukan 1 perangkat PCI (misal NIC) dan tuliskan: Vendor:Device ID (angka heksadesimal), nama driver/modul kernel, dan deskripsi singkat fungsinya.<br>
+
+Nama Perangkat = Intel Corporation 82801AA AC'97 Audio Controller<br>
+Device ID = 8086:2415<br>
+Kernel Module = snd_intel8x0<br>
+Deskripsi = Digunakan untuk mengkontrol Audio<br>
+
+## Praktikum 2.3
+
+1. Melihat block device dan filesystem
+![Tampilkan](Images/Praktikum3_1.png)<br>
+
+2. Melihat UUID filesystem
+![Tampilkan](Images/Praktikum3_2.png)<br>
+
+3. Melihat device untuk root filesystem
+![Tampilkan](Images/Praktikum3_3.png)<br>
+
+
+## Praktikum 2.4
+
+1. Cek versi kernel
+![Tampilkan](Images/Praktikum4_1.png)<br>
+
+2. Daftar modul aktif
+![Tampilkan](Images/Praktikum4_2.png)<br>
+
+3. Detail modul dengan modinfo
+![Tampilkan](Images/Praktikum4_3.png)<br>
+
+4. Load modul dan verifikasi
+![Tampilkan](Images/Praktikum4_4.png)<br>
+
+5.
+![Tampilkan](Images/Praktikum4_5.png)<br>
+
+
 
 Praktikum 6
 Perbedaan = character device memasukkan/mengeluarkan data satu karakter sekaligus, sedangkan block device memasukkan/mengeluarkan data blok demi blok. block device menggunakan tanda huruf b, sedangkan character device menggunakan awalan huruf c

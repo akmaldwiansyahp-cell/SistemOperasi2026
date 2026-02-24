@@ -14,14 +14,13 @@
 3. Informasi DMI
 ![Tampilkan penggunaan memori](Images/Praktikum1_3.png)<break>
 
-Praktikum 1 <break>
+Catat: (1) jumlah CPU(s), core/thread, (2) total RAM, (3) total swap. Jelaskan perbedaan RAM vs swap dalam 2–3 kalimat.<break>
 * Cpu = 1 <break>
 * threads = 1 <break>
 * core = 3 <break>
 * RAM = 2.9 Gi <break>
 * swap = 0 <break>
-Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang digunakan oleh komputer untuk menyimpan data, sedangkan swap adalah storage yang digunakan sebagai
-memori virtual cadangan saat RAM mulai penuh<break>
+* Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang digunakan oleh komputer untuk menyimpan data, sedangkan swap adalah storage yang digunakan sebagai memori virtual cadangan saat RAM mulai penuh<break>
 
 Praktikum 2
 Nama Perangkat = Intel Corporation 82801AA AC'97 Audio Controller

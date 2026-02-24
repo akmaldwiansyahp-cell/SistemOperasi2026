@@ -243,3 +243,43 @@ Biasanya digunakan untuk:<br>
 - Service testing
 - Software tertentu yang dikonfigurasi manual
 - Bisa juga indikasi service tidak umum (perlu dicek)
+
+# LATIHAN SOAL
+
+2.A Jalankan lspci -nnk. Pilih 1 perangkat PCI dan tuliskan: nama perangkat, ID vendor:device, dan kernel driver in use.<br>
+**jawab:** <br>
+Nama Perangkat = Intel Corporation 82801AA AC'97 Audio Controller<br>
+Device ID = 8086:2415<br>
+Kernel Module = snd_intel8x0<br>
+Deskripsi = Digunakan untuk mengkontrol Audio<br>
+![Tampilkan dafta perangkat pci](Images/Praktikum2_2.png)<br>
+
+2.B Tentukan device root filesystem dengan findmnt /. Lalu cocokkan dengan lsblk -f dan tuliskan tipe filesystem serta UUID-nya.<br>
+**jawab:** <br>
+FileSystem: ext4<br>
+UUID: 695ba52b-32a2-4a47-b706-a96aff037c4a<br>
+
+2.C Buat file server.log berisi minimal 10 baris dengan variasi kata: INFO,WARN, ERROR. Gunakan grep untuk menampilkan hanya baris ERROR.<br>
+**jawab:** <br>
+![Tampilkan dafta perangkat pci](Images/Latihan2c.png)<br>
+
+2.D Gunakan sed untuk mengganti semua kata server menjadi node pada file latihan. Tunjukkan sebelum dan sesudah.<br>
+**jawab:** <br>
+Sebelum<br>
+![Tampilkan dafta perangkat pci](Images/2D_sebelum.png)<br>
+
+Sesudah<br>
+![Tampilkan dafta perangkat pci](Images/2D_sesudah)<br>
+
+2.E Gunakan df -h lalu awk untuk menampilkan filesystem yang penggunaan disk di atas 70%.<br>
+**jawab:** <br>
+![Tampilkan dafta perangkat pci](Images/2E)<br>
+
+2.F Jalankan sleep 600 &. Temukan PID-nya dengan ps. Hentikan dengan SIGTERM. Jelaskan beda SIGTERM vs SIGKILL.<br>
+**jawab:** <br>
+Perbedaan dari SIGTERM dan SIGKILL adalah SIGTERM menutup file secara aman, sedangkan SIGKILL memaksa mematikan file yang dapat membuat file tersebut corrupt. Serta SIGTERM menggunakan terminated dan SIGKILL menggunakan killed<br>
+
+2.G Gunakan systemctl –failed. Jika tidak ada yang gagal, pilih satu service aktif (misal ssh) dan tampilkan status serta 30 baris log terakhirnya.<br>
+**jawab:** <br>
+![Tampilkan dafta perangkat pci](Images/2G)<br>
+

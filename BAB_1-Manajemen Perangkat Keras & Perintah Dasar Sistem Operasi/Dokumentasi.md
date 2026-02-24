@@ -73,7 +73,7 @@ Deskripsi = Digunakan untuk mengkontrol Audio<br>
 4. Load modul dan verifikasi<br>
 ![Tampilkan](Images/Praktikum4_4.png)<br>
 
-5. Cek log kernel terbaru
+5. Cek log kernel terbaru<br>
 ![Tampilkan](Images/Praktikum4_5.png)<br>
 
 
@@ -82,7 +82,7 @@ Deskripsi = Digunakan untuk mengkontrol Audio<br>
 1. Menambahkan modul untuk auto-load (demo)
 ![Tampilkan](Images/Praktikum5_1.png)<br>
 
-2. Verifikasi modul aktif
+2. Verifikasi modul aktif<br>
 ![Tampilkan](Images/Praktikum5_2.png)<br>
 
 3. Contoh blacklist modul
@@ -90,13 +90,13 @@ Deskripsi = Digunakan untuk mengkontrol Audio<br>
 
 ## Praktikum 2.6
 
-1. Melihat detail device node disk
+1. Melihat detail device node disk<br>
 ![Tampilkan](Images/Praktikum6_1.png)<br>
 
-2. Melihat detail device node terminal
+2. Melihat detail device node terminal<br>
 ![Tampilkan](Images/Praktikum6_2.png)<br>
 
-3. Mapping disk/partisi
+3. Mapping disk/partisi<br>
 ![Tampilkan](Images/Praktikum6_3.png)<br>
 
 **Latihan 2.3**<br>
@@ -110,12 +110,12 @@ Perbedaan = character device memasukkan/mengeluarkan data satu karakter sekaligu
 1. Melihat atribut udev untuk disk
 ![Tampilkan](Images/Praktikum7_1.png)<br>
 
-2. Monitor event udev
+2. Monitor event udev<br>
 ![Tampilkan](Images/Praktikum7_2.png)<br>
 
 ## Praktikum 2.8
 
-1. Membuat workspace praktikum
+1. Membuat workspace praktikum<br>
 ![Tampilkan](Images/Praktikum8_1.png)<br>
 
 2. Membuat workspace praktikum
@@ -124,15 +124,122 @@ Perbedaan = character device memasukkan/mengeluarkan data satu karakter sekaligu
 3.  Mengisi file log contoh
 ![Tampilkan](Images/Praktikum8_3.png)<br>
 
-4. Membaca file dengan less
+4. Membaca file dengan less<br>
 ![Tampilkan](Images/Praktikum8_4.png)<br>
 
-Praktikum 16
-Port = 55
-Proses/Service = systemd
-pid = 1
-Biasanya digunakan untuk:
--Aplikasi kustom / internal
+## Praktikum 2.9
+
+1. grep sederhana
+![Tampilkan](Images/Praktikum9_1.png)<br>
+
+2. grep case-insensitive
+![Tampilkan](Images/Praktikum9_2.png)<br>
+
+3. grep dengan nomor baris
+![Tampilkan](Images/Praktikum9_3.png)<br>
+
+4. grep invert match
+![Tampilkan](Images/Praktikum9_4.png)<br>
+
+**Latihan 2.4**<br>
+
+Gunakan grep untuk menampilkan hanya baris yang mengandung INFO atau
+WARN dari data.log. (Hint: gunakan grep -E dengan pola alternatif)<br>
+
+![Tampilkan](Images/Praktikum9_TUGAS.png)<br>
+
+## Praktikum 2.10
+
+1. Membuat file config latihan
+![Tampilkan](Images/Praktikum10_1.png)<br>
+
+2. sed substitusi tanpa in-place
+![Tampilkan](Images/Praktikum10_2.png)<br>
+
+3. sed in-place
+![Tampilkan](Images/Praktikum10_3.png)<br>
+
+4. sed global replacement
+![Tampilkan](Images/Praktikum10_4.png)<br>
+
+## Praktikum 2.11
+
+1. Output df -h
+![Tampilkan](Images/Praktikum11_1.png)<br>
+
+2. awk print kolom tertentu
+![Tampilkan](Images/Praktikum11_2.png)<br>
+
+3. awk filter berdasarkan kondisi
+![Tampilkan](Images/Praktikum11_3.png)<br>
+
+## Praktikum 2.12
+
+1. ps aux
+![Tampilkan](Images/Praktikum12_1.png)<br>
+
+2. Filter proses dengan grep
+![Tampilkan](Images/Praktikum12_2.png)<br>
+
+## Praktikum 2.13
+
+1. Menjalankan top
+![Tampilkan](Images/Praktikum13_1.png)<br>
+
+## Praktikum 2.14
+
+1. Membuat proses dummy
+![Tampilkan](Images/Praktikum14_1.png)<br>
+
+2. Mencari PID sleep
+![Tampilkan](Images/Praktikum14_2.png)<br>
+
+3. Mengirim SIGTERM
+![Tampilkan](Images/Praktikum14_3.png)<br>
+
+4. Verifikasi proses sudah berhenti
+![Tampilkan](Images/Praktikum14_4.png)<br>
+
+5. Mengirim SIGKILL 
+![Tampilkan](Images/Praktikum14_5.png)<br>
+
+## Praktikum 2.15
+
+1. Cek kapasitas disk
+![Tampilkan](Images/Praktikum15_1.png)<br>
+
+2. Cek ukuran direktori (contoh /var)
+![Tampilkan](Images/Praktikum15_2.png)<br>
+
+3. Cek load average
+![Tampilkan](Images/Praktikum15_3.png)<br>
+
+4. Service yang gagal
+![Tampilkan](Images/Praktikum15_4.png)<br>
+
+5. Log error terbaru
+![Tampilkan](Images/Praktikum15_5.png)<br>
+
+## Praktikum 2.16
+
+1. Cek IP address
+![Tampilkan](Images/Praktikum16_1.png)<br>
+
+2. Cek routing
+![Tampilkan](Images/Praktikum16_2.png)<br>
+
+3. Cek port listening
+![Tampilkan](Images/Praktikum1_3.png)<br>
+
+**Latihan 2.5**<br>
+
+Pilih satu port yang listening dari output ss -tulpn(misal port 22), lalu tuliskan service/proses yang membukanya. Jelaskan kegunaan port tersebut secara singkat.<br>
+
+Port = 55<br>
+Proses/Service = systemd<br>
+pid = 1<br>
+Biasanya digunakan untuk:<br>
+- Aplikasi kustom / internal
 - Service testing
 - Software tertentu yang dikonfigurasi manual
 - Bisa juga indikasi service tidak umum (perlu dicek)

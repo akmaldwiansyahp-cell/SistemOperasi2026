@@ -14,7 +14,7 @@
 3. Informasi DMI
 ![Informasi DMI](Images/Praktikum1_3.png)<break>
 
-<break>Latihan 2.1</break>
+Latihan 2.1<br>
 Catat: (1) jumlah CPU(s), core/thread, (2) total RAM, (3) total swap. Jelaskan perbedaan RAM vs swap dalam 2–3 kalimat.<break>
 * Cpu = 1 <break>
 * threads = 1 <break>

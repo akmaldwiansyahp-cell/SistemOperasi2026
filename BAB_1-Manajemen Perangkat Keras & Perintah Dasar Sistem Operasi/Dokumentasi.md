@@ -7,7 +7,10 @@
 # Praktikum 2.1
 1. Melihat informasi CPU
 ![Tampilkan informasi cpu](Images/Praktikum1_1.png)
-Praktikum 1
+
+2. Melihat Penggunaan Memori
+![Tampilkan informasi cpu](Images/Praktikum1_2.png)
+Praktikum 1 <break>
 Cpu = 1
 threads = 1
 core = 3

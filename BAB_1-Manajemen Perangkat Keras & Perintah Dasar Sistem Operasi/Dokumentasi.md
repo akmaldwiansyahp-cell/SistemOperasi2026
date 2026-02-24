@@ -55,26 +55,38 @@ Deskripsi = Digunakan untuk mengkontrol Audio<br>
 2. Melihat UUID filesystem
 ![Tampilkan](Images/Praktikum3_2.png)<br>
 
-3. Melihat device untuk root filesystem
+3. Melihat device untuk root filesystem<br>
 ![Tampilkan](Images/Praktikum3_3.png)<br>
 
 
 ## Praktikum 2.4
 
-1. Cek versi kernel
+1. Cek versi kernel<br>
 ![Tampilkan](Images/Praktikum4_1.png)<br>
 
-2. Daftar modul aktif
+2. Daftar modul aktif<br>
 ![Tampilkan](Images/Praktikum4_2.png)<br>
 
 3. Detail modul dengan modinfo
 ![Tampilkan](Images/Praktikum4_3.png)<br>
 
-4. Load modul dan verifikasi
+4. Load modul dan verifikasi<br>
 ![Tampilkan](Images/Praktikum4_4.png)<br>
 
-5.
+5. Cek log kernel terbaru
 ![Tampilkan](Images/Praktikum4_5.png)<br>
+
+
+## Praktikum 2.5
+
+1. Menambahkan modul untuk auto-load (demo)
+![Tampilkan](Images/Praktikum5_1.png)<br>
+
+2. Verifikasi modul aktif
+![Tampilkan](Images/Praktikum5_2.png)<br>
+
+3. Contoh blacklist modul
+![Tampilkan](Images/Praktikum5_3.png)<br>
 
 
 

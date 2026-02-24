@@ -88,10 +88,44 @@ Deskripsi = Digunakan untuk mengkontrol Audio<br>
 3. Contoh blacklist modul
 ![Tampilkan](Images/Praktikum5_3.png)<br>
 
+## Praktikum 2.6
 
+1. Melihat detail device node disk
+![Tampilkan](Images/Praktikum6_1.png)<br>
 
-Praktikum 6
-Perbedaan = character device memasukkan/mengeluarkan data satu karakter sekaligus, sedangkan block device memasukkan/mengeluarkan data blok demi blok. block device menggunakan tanda huruf b, sedangkan character device menggunakan awalan huruf c
+2. Melihat detail device node terminal
+![Tampilkan](Images/Praktikum6_2.png)<br>
+
+3. Mapping disk/partisi
+![Tampilkan](Images/Praktikum6_3.png)<br>
+
+**Latihan 2.3**<br>
+
+Dari output ls -l, jelaskan perbedaan penanda file untuk block device dan character device. (Hint: karakter pertama pada permission string)<br>
+
+Perbedaan = character device memasukkan/mengeluarkan data satu karakter sekaligus, sedangkan block device memasukkan/mengeluarkan data blok demi blok. block device menggunakan tanda huruf b, sedangkan character device menggunakan awalan huruf c<br>
+
+## Praktikum 2.7
+
+1. Melihat atribut udev untuk disk
+![Tampilkan](Images/Praktikum7_1.png)<br>
+
+2. Monitor event udev
+![Tampilkan](Images/Praktikum7_2.png)<br>
+
+## Praktikum 2.8
+
+1. Membuat workspace praktikum
+![Tampilkan](Images/Praktikum8_1.png)<br>
+
+2. Membuat workspace praktikum
+![Tampilkan](Images/Praktikum8_2.png)<br>
+
+3.  Mengisi file log contoh
+![Tampilkan](Images/Praktikum8_3.png)<br>
+
+4. Membaca file dengan less
+![Tampilkan](Images/Praktikum8_4.png)<br>
 
 Praktikum 16
 Port = 55

@@ -33,7 +33,7 @@ Perbedaan = Perbedaan dari RAM dan swap adalah, RAM merupakan memori utama yang 
 3. Mencari info NIC dan drivernya
 ![Tampilkan dafta perangkat pci](Images/Praktikum2_3.png)<br>
 
-4. Daftar perangkat USB
+4. Daftar perangkat USB<br>
 ![Tampilkan dafta perangkat pci](Images/Praktikum2_4.png)<br>
 
 5. Topologi perangkat USB

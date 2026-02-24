@@ -101,6 +101,14 @@ Eksplorasi sistem yang baru diinstall:<br>
 5. Install dan jalankan htop untuk melihat resource usage<br>
 6. Buat laporan singkat tentang konfigurasi sistem Anda<br>
 
+![Tampilkan dafta perangkat pci](Images1/14.png)<br>
+![Tampilkan dafta perangkat pci](Images1/15.png)<br>
+![Tampilkan dafta perangkat pci](Images1/16.png)<br>
+![Tampilkan dafta perangkat pci](Images1/17.png)<br>
+![Tampilkan dafta perangkat pci](Images1/18.png)<br>
+
+
+
 ## 1.10.3. Latihan Refleksi
 
 Ceritakan pengalaman Anda dengan sistem operasi:<br>

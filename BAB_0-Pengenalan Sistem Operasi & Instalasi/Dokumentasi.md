@@ -87,7 +87,6 @@ Setelah instalasi Ubuntu Server, lakukan tasks berikut:<br>
 ![Tampilkan dafta perangkat pci](Images1/7.png)<br>
 ![Tampilkan dafta perangkat pci](Images1/8.png)<br>
 ![Tampilkan dafta perangkat pci](Images1/9.png)<br>
-![Tampilkan dafta perangkat pci](Images1/10.png)<br>
 ![Tampilkan dafta perangkat pci](Images1/11.png)<br>
 ![Tampilkan dafta perangkat pci](Images1/12.png)<br>
 

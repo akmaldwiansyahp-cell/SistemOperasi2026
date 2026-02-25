@@ -90,7 +90,7 @@ Setelah instalasi Ubuntu Server, lakukan tasks berikut:<br>
 ![Tampilkan dafta perangkat pci](Images1/10.png)<br>
 ![Tampilkan dafta perangkat pci](Images1/11.png)<br>
 ![Tampilkan dafta perangkat pci](Images1/12.png)<br>
-![Tampilkan dafta perangkat pci](Images1/13.png)<br>
+
 
 
 Eksplorasi sistem yang baru diinstall:<br>
@@ -129,7 +129,7 @@ Tantangan yang saya hadapi ketika menggunakan windows adalah banyak nya bloatwar
 Sejauh ini tidak pernah, hal terdekat adalah pelajaran Sistem Operasi ini. menurut saya ubuntu server memang sulit untuk dinavigasi dibandingkan windows, tetapi saya tau bahwa kegunaan seperti ini dibutuhkan pada bidang server server umumnya.
 6. Setelah mempelajari bab ini, apakah ada sistem operasi lain yang ingin Anda coba? Mengapa?<br>
 Tulis refleksi Anda dalam 300-500 kata disertai dengan dokumentasi.<br>
-**Jawab:**<br>
+**Jawab:**<br><br>
 Setelah mempelajari bab mengenai konsep dasar sistem operasi, arsitektur kernel, serta praktik instalasi Ubuntu Server, saya menjadi lebih memahami bahwa setiap sistem operasi memiliki filosofi dan tujuan desain yang berbeda. Selama ini saya menggunakan Windows sebagai sistem operasi utama karena kemudahan penggunaan dan kompatibilitas aplikasinya yang luas. Namun, setelah mempelajari materi ini, ada beberapa sistem operasi lain yang ingin saya coba, khususnya distro Linux seperti Ubuntu Desktop, Fedora, dan Arch Linux, serta macOS.<br>
 <br>
 Sistem operasi pertama yang ingin saya coba lebih dalam adalah Ubuntu versi Desktop. Setelah berhasil menginstal Ubuntu Server 22.04 LTS di VirtualBox dan menjalankan beberapa perintah seperti neofetch, df -h, dan free -h, saya mulai merasa lebih familiar dengan environment Linux. Namun, karena Ubuntu Server berbasis CLI (Command Line Interface), saya ingin merasakan pengalaman menggunakan Linux dengan GUI untuk kebutuhan sehari-hari seperti browsing, coding, dan manajemen file. Saya tertarik melihat bagaimana performa dan stabilitasnya dibandingkan Windows, terutama dari segi manajemen resource dan minimnya bloatware.<br>

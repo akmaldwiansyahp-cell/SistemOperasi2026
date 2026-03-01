@@ -12,16 +12,18 @@ Kode Program:<br>
 <code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code><br>
 
 Hasil:<br>
->377M    /var/log/<br>
->371M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd<br>
->371M    /var/log/journal<br>
->8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064b10c775b794-f8d27a92954eff8a.journal~<br>
->8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064a96da88229b-50504b18faa49ac7.journal~<br>
->8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000.journal<br>
->8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000@00064bf6438710d8-314ec7febc7551b8.journal~<br>
->8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system.journal<br>
->8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf642e801bb-fe79b3cba04be1b0.journal~<br>
->8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~<br>
+```markdown
+377M    /var/log/<br>
+371M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd<br>
+371M    /var/log/journal<br>
+8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064b10c775b794-f8d27a92954eff8a.journal~<br>
+8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064a96da88229b-50504b18faa49ac7.journal~<br>
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000.journal<br>
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000@00064bf6438710d8-314ec7febc7551b8.journal~<br>
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system.journal<br>
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf642e801bb-fe79b3cba04be1b0.journal~<br>
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~<br>
+```
 
 <br>
 
@@ -37,40 +39,42 @@ Kode Program:<br>
 <code>cut -d: -f1 /etc/passwd | sort > sorted-users.txt</code><br>
 
 Hasil:<br>
->_apt<br>
->backup<br>
->bin<br>
->daemon<br>
->dhcpcd<br>
->fwupd-refresh<br>
->games<br>
->irc<br>
->landscape<br>
->list<br>
->lp<br>
->mail<br>
->man<br>
->messagebus<br>
->news<br>
->nobody<br>
->pluto<br>
->polkitd<br>
->pollinate<br>
->proxy<br>
->root<br>
->sshd<br>
->sync<br>
->sys<br>
->syslog<br>
->systemd-network<br>
->systemd-resolve<br>
->systemd-timesync<br>
->tcpdump<br>
->tss<br>
->usbmux<br>
->uucp<br>
->uuidd<br>
->www-data<br>
+```markdown
+_apt<br>
+backup<br>
+bin<br>
+daemon<br>
+dhcpcd<br>
+fwupd-refresh<br>
+games<br>
+irc<br>
+landscape<br>
+list<br>
+lp<br>
+mail<br>
+man<br>
+messagebus<br>
+news<br>
+nobody<br>
+pluto<br>
+polkitd<br>
+pollinate<br>
+proxy<br>
+root<br>
+sshd<br>
+sync<br>
+sys<br>
+syslog<br>
+systemd-network<br>
+systemd-resolve<br>
+systemd-timesync<br>
+tcpdump<br>
+tss<br>
+usbmux<br>
+uucp<br>
+uuidd<br>
+www-data<br>
+```
 
 <br>
 
@@ -121,22 +125,24 @@ Kode Program:<br>
 <code>./monitor.sh</code><br>
 
 Hasil:<br>
->Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026<br>
->----------------------------------------<br>
->2026-03-01 15:38:41 | CPU: 32.6% | MEM: 12.08%<br>
->2026-03-01 15:38:47 | CPU: 26.5% | MEM: 12.08%<br>
->2026-03-01 15:38:52 | CPU: 15.2% | MEM: 12.15%<br>
->2026-03-01 15:38:58 | CPU: 29% | MEM: 12.18%<br>
->2026-03-01 15:39:03 | CPU: 19.4% | MEM: 12.18%<br>
->2026-03-01 15:39:09 | CPU: 12.5% | MEM: 12.18%<br>
->2026-03-01 15:39:14 | CPU: 20.6% | MEM: 12.18%<br>
->2026-03-01 15:39:19 | CPU: 9.1% | MEM: 12.21%<br>
->2026-03-01 15:39:25 | CPU: 3.3% | MEM: 12.21%<br>
->2026-03-01 15:39:30 | CPU: 24.2% | MEM: 12.21%<br>
->2026-03-01 15:39:36 | CPU: 3.2% | MEM: 12.21%<br>
->2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%<br>
->----------------------------------------<br>
->Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026<br>
+```markdown
+Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026<br>
+----------------------------------------<br>
+2026-03-01 15:38:41 | CPU: 32.6% | MEM: 12.08%<br>
+2026-03-01 15:38:47 | CPU: 26.5% | MEM: 12.08%<br>
+2026-03-01 15:38:52 | CPU: 15.2% | MEM: 12.15%<br>
+2026-03-01 15:38:58 | CPU: 29% | MEM: 12.18%<br>
+2026-03-01 15:39:03 | CPU: 19.4% | MEM: 12.18%<br>
+2026-03-01 15:39:09 | CPU: 12.5% | MEM: 12.18%<br>
+2026-03-01 15:39:14 | CPU: 20.6% | MEM: 12.18%<br>
+2026-03-01 15:39:19 | CPU: 9.1% | MEM: 12.21%<br>
+2026-03-01 15:39:25 | CPU: 3.3% | MEM: 12.21%<br>
+2026-03-01 15:39:30 | CPU: 24.2% | MEM: 12.21%<br>
+2026-03-01 15:39:36 | CPU: 3.2% | MEM: 12.21%<br>
+2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%<br>
+----------------------------------------<br>
+Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026<br>
+```
 
 <br>
 
@@ -150,7 +156,9 @@ Kode Program:<br>
 <code>find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l</code><br>
 
 Hasil:<br>
->402
+```markdown
+402
+```
 
 <br>
 
@@ -168,42 +176,44 @@ Kode Program:<br>
 <br>
 
 - Script<br>
->#!/bin/bash
->
->SOURCE_DIR="/etc"          # contoh direktori yang mau dibackup
->BACKUP_DIR="/backup"       # contoh direktori penyimpanan backup
->
->TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
->BACKUP_FILE="$BACKUP_DIR/backup-$TIMESTAMP.tar.gz"
->
->SUCCESS_LOG="$BACKUP_DIR/backup-success.log"
->ERROR_LOG="$BACKUP_DIR/backup-error.log"
->
->log_with_timestamp() {
->    while IFS= read -r line; do
->        echo "$(date '+%Y-%m-%d %H:%M:%S') - $line"
->    done
->}
->
->if [ ! -d "$SOURCE_DIR" ]; then
->    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR: Direktori sumber tidak ditemukan: $SOURCE_DIR"
->    exit 1
->fi
->
->mkdir -p "$BACKUP_DIR"
->
->echo "$(date '+%Y-%m-%d %H:%M:%S') - Memulai backup $SOURCE_DIR"
->
->tar -czvf "$BACKUP_FILE" "$SOURCE_DIR" \
->    > >(log_with_timestamp | tee -a "$SUCCESS_LOG") \
->    2> >(log_with_timestamp | tee -a "$ERROR_LOG" >&2)
->
->if [ $? -eq 0 ]; then
->    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup BERHASIL: $BACKUP_FILE" | tee -a "$SUCCESS_LOG"
->else
->    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup GAGAL!" | tee -a "$ERROR_LOG" >&2
->    exit 1
->fi
+```markdown
+#!/bin/bash
+
+SOURCE_DIR="/etc"          # contoh direktori yang mau dibackup
+BACKUP_DIR="/backup"       # contoh direktori penyimpanan backup
+
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+BACKUP_FILE="$BACKUP_DIR/backup-$TIMESTAMP.tar.gz"
+
+SUCCESS_LOG="$BACKUP_DIR/backup-success.log"
+ERROR_LOG="$BACKUP_DIR/backup-error.log"
+
+log_with_timestamp() {
+    while IFS= read -r line; do
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - $line"
+    done
+}
+
+if [ ! -d "$SOURCE_DIR" ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR: Direktori sumber tidak ditemukan: $SOURCE_DIR"
+    exit 1
+fi
+
+mkdir -p "$BACKUP_DIR"
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Memulai backup $SOURCE_DIR"
+
+tar -czvf "$BACKUP_FILE" "$SOURCE_DIR" \
+    > >(log_with_timestamp | tee -a "$SUCCESS_LOG") \
+    2> >(log_with_timestamp | tee -a "$ERROR_LOG" >&2)
+
+if [ $? -eq 0 ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup BERHASIL: $BACKUP_FILE" | tee -a "$SUCCESS_LOG"
+else
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup GAGAL!" | tee -a "$ERROR_LOG" >&2
+    exit 1
+fi
+```
 
 <br>
 

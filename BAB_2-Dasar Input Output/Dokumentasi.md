@@ -78,43 +78,43 @@ Tulis script monitoring yang:
 4. Output ditampilkan di terminal DAN disimpan ke file
 
 
-- Script bash
-<code>#!/bin/bash
-
-LOG_FILE="monitor.log"
-INTERVAL=5
-ITERATIONS=12
-
-echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"
-echo "----------------------------------------" | tee -a "$LOG_FILE"
-
-for ((i=1; i<=ITERATIONS; i++))
-do
-    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-
-    # Ambil CPU usage (persen)
-    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')
-    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")
-
-    # Ambil memory usage
-    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')
-
-    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"
-
-    # Tampilkan ke terminal dan simpan ke file
-    echo "$OUTPUT" | tee -a "$LOG_FILE"
-
-    sleep $INTERVAL
-done
-
-echo "----------------------------------------" | tee -a "$LOG_FILE"
+- Script bash<br>
+<code>#!/bin/bash<br>
+<br>
+LOG_FILE="monitor.log"<br>
+INTERVAL=5<br>
+ITERATIONS=12<br>
+<br>
+echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"<br>
+echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
+<br>
+for ((i=1; i<=ITERATIONS; i++))<br>
+do<br>
+    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")<br>
+<br>
+    # Ambil CPU usage (persen)<br>
+    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')<br>
+    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")<br>
+<br>
+    # Ambil memory usage<br>
+    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')<br>
+<br>
+    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"<br>
+<br>
+    # Tampilkan ke terminal dan simpan ke file<br>
+    echo "$OUTPUT" | tee -a "$LOG_FILE"<br>
+<br>
+    sleep $INTERVAL<br>
+done<br>
+<br>
+echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
 echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"</code>
 
-- Menyimpan file
+- Menyimpan file<br>
 <code>nano monitor.sh</code>
-- Permission
+- Permission<br>
 <code>chmod +x monitor.sh</code>
-- Menjalankan
+- Menjalankan<br>
 <code>./monitor.sh</code>
 
 >Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026<br>

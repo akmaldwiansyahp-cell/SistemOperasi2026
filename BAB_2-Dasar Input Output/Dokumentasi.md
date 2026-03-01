@@ -9,9 +9,9 @@ Buatlah script yang:
 4. Menangani error dengan redirect ke error.log<br>
 
 Kode Program:<br>
-<code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code>
+<code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code><br>
 
-
+Hasil:<br>
 >377M    /var/log/<br>
 >371M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd<br>
 >371M    /var/log/journal<br>
@@ -34,8 +34,9 @@ Buat pipeline yang:
 Hint: Gunakan cut, sort, dan operator redirect.<br>
 
 Kode Program:<br>
-<code>cut -d: -f1 /etc/passwd | sort > sorted-users.txt</code>
+<code>cut -d: -f1 /etc/passwd | sort > sorted-users.txt</code><br>
 
+Hasil:<br>
 >_apt<br>
 >backup<br>
 >bin<br>
@@ -120,8 +121,9 @@ Kode Program:<br>
 - Permission<br>
 <code>chmod +x monitor.sh</code>
 - Menjalankan<br>
-<code>./monitor.sh</code>
+<code>./monitor.sh</code><br>
 
+Hasil:<br>
 >Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026<br>
 >----------------------------------------<br>
 >2026-03-01 15:38:41 | CPU: 32.6% | MEM: 12.08%<br>
@@ -145,9 +147,9 @@ Buat perintah yang:
 1. Mencari semua file .conf di sistem
 2. Membuang pesan "Permission denied"
 3. Menghitung jumlah file yang ditemukan
-4. Menyimpan daftar path lengkap ke file
+4. Menyimpan daftar path lengkap ke file<br>
 
-
+Kode Program:<br>
 <code>find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l</code>
 
 >402

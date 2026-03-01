@@ -68,3 +68,67 @@ Hint: Gunakan cut, sort, dan operator redirect.
 >uucp<br>
 >uuidd<br>
 >www-data<br>
+
+<br>
+
+Tulis script monitoring yang:
+1. Mencatat penggunaan CPU dan memory setiap 5 detik
+2. Menyimpan log dengan timestamp
+3. Berjalan selama 1 menit (12 iterasi)
+4. Output ditampilkan di terminal DAN disimpan ke file
+
+
+- Script bash
+<code>#!/bin/bash
+
+LOG_FILE="monitor.log"
+INTERVAL=5
+ITERATIONS=12
+
+echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"
+echo "----------------------------------------" | tee -a "$LOG_FILE"
+
+for ((i=1; i<=ITERATIONS; i++))
+do
+    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+    # Ambil CPU usage (persen)
+    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')
+    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")
+
+    # Ambil memory usage
+    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')
+
+    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"
+
+    # Tampilkan ke terminal dan simpan ke file
+    echo "$OUTPUT" | tee -a "$LOG_FILE"
+
+    sleep $INTERVAL
+done
+
+echo "----------------------------------------" | tee -a "$LOG_FILE"
+echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"</code>
+- Menyimpan file
+<code>nano monitor.sh</code>
+- Permission
+<code>chmod +x monitor.sh</code>
+- Menjalankan
+<code>./monitor.sh</code>
+
+>Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026
+>----------------------------------------
+>2026-03-01 15:38:41 | CPU: 32.6% | MEM: 12.08%
+>2026-03-01 15:38:47 | CPU: 26.5% | MEM: 12.08%
+>2026-03-01 15:38:52 | CPU: 15.2% | MEM: 12.15%
+>2026-03-01 15:38:58 | CPU: 29% | MEM: 12.18%
+>2026-03-01 15:39:03 | CPU: 19.4% | MEM: 12.18%
+>2026-03-01 15:39:09 | CPU: 12.5% | MEM: 12.18%
+>2026-03-01 15:39:14 | CPU: 20.6% | MEM: 12.18%
+>2026-03-01 15:39:19 | CPU: 9.1% | MEM: 12.21%
+>2026-03-01 15:39:25 | CPU: 3.3% | MEM: 12.21%
+>2026-03-01 15:39:30 | CPU: 24.2% | MEM: 12.21%
+>2026-03-01 15:39:36 | CPU: 3.2% | MEM: 12.21%
+>2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%
+>----------------------------------------
+>Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026

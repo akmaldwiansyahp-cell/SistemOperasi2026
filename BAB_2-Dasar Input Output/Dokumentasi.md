@@ -1,13 +1,13 @@
 # Laporan Sistem Operasi Jobsheet 3
 
->
->Latihan 3.1
->Buatlah script yang:
->1. Menampilkan daftar 10 file terbesar di direktori /var/log/
->2. Menyimpan hasilnya ke file large-logs.txt
->3. Menampilkan output juga di terminal menggunakan tee
->4. Menangani error dengan redirect ke error.log
->
+
+Latihan 3.1
+Buatlah script yang:
+1. Menampilkan daftar 10 file terbesar di direktori /var/log/
+2. Menyimpan hasilnya ke file large-logs.txt
+3. Menampilkan output juga di terminal menggunakan tee
+4. Menangani error dengan redirect ke error.log
+
 
 <code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code>
 
@@ -23,3 +23,11 @@
 >8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf642e801bb-fe79b3cba04be1b0.journal~
 >8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~
 >
+
+Latihan 3.2
+Buat pipeline yang:
+1. Membaca /etc/passwd
+2. Mengekstrak username (kolom pertama)
+3. Mengurutkan alfabetis
+4. Menyimpan ke file sorted-users.txt
+Hint: Gunakan cut, sort, dan operator redirect.

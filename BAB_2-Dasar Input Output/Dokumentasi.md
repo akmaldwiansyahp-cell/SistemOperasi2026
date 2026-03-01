@@ -13,16 +13,16 @@ Kode Program:<br>
 
 Hasil:<br>
 ```markdown
-377M    /var/log/<br>
-371M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd<br>
-371M    /var/log/journal<br>
-8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064b10c775b794-f8d27a92954eff8a.journal~<br>
-8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064a96da88229b-50504b18faa49ac7.journal~<br>
-8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000.journal<br>
-8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000@00064bf6438710d8-314ec7febc7551b8.journal~<br>
-8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system.journal<br>
-8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf642e801bb-fe79b3cba04be1b0.journal~<br>
-8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~<br>
+377M    /var/log/
+371M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd
+371M    /var/log/journal
+8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064b10c775b794-f8d27a92954eff8a.journal~
+8.1M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064a96da88229b-50504b18faa49ac7.journal~
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000.journal
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/user-1000@00064bf6438710d8-314ec7febc7551b8.journal~
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system.journal
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf642e801bb-fe79b3cba04be1b0.journal~
+8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~
 ```
 
 <br>
@@ -40,40 +40,40 @@ Kode Program:<br>
 
 Hasil:<br>
 ```markdown
-_apt<br>
-backup<br>
-bin<br>
-daemon<br>
-dhcpcd<br>
-fwupd-refresh<br>
-games<br>
-irc<br>
-landscape<br>
-list<br>
-lp<br>
-mail<br>
-man<br>
-messagebus<br>
-news<br>
-nobody<br>
-pluto<br>
-polkitd<br>
-pollinate<br>
-proxy<br>
-root<br>
-sshd<br>
-sync<br>
-sys<br>
-syslog<br>
-systemd-network<br>
-systemd-resolve<br>
-systemd-timesync<br>
-tcpdump<br>
-tss<br>
-usbmux<br>
-uucp<br>
-uuidd<br>
-www-data<br>
+_apt
+backup
+bin
+daemon
+dhcpcd
+fwupd-refresh
+games
+irc
+landscape
+list
+lp
+mail
+man
+messagebus
+news
+nobody
+pluto
+polkitd
+pollinate
+proxy
+root
+sshd
+sync
+sys
+syslog
+systemd-network
+systemd-resolve
+systemd-timesync
+tcpdump
+tss
+usbmux
+uucp
+uuidd
+www-data
 ```
 
 <br>
@@ -126,22 +126,22 @@ Kode Program:<br>
 
 Hasil:<br>
 ```markdown
-Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026<br>
-----------------------------------------<br>
-2026-03-01 15:38:41 | CPU: 32.6% | MEM: 12.08%<br>
-2026-03-01 15:38:47 | CPU: 26.5% | MEM: 12.08%<br>
-2026-03-01 15:38:52 | CPU: 15.2% | MEM: 12.15%<br>
-2026-03-01 15:38:58 | CPU: 29% | MEM: 12.18%<br>
-2026-03-01 15:39:03 | CPU: 19.4% | MEM: 12.18%<br>
-2026-03-01 15:39:09 | CPU: 12.5% | MEM: 12.18%<br>
-2026-03-01 15:39:14 | CPU: 20.6% | MEM: 12.18%<br>
-2026-03-01 15:39:19 | CPU: 9.1% | MEM: 12.21%<br>
-2026-03-01 15:39:25 | CPU: 3.3% | MEM: 12.21%<br>
-2026-03-01 15:39:30 | CPU: 24.2% | MEM: 12.21%<br>
-2026-03-01 15:39:36 | CPU: 3.2% | MEM: 12.21%<br>
-2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%<br>
-----------------------------------------<br>
-Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026<br>
+Monitoring started at Sun Mar  1 03:38:41 PM UTC 2026
+----------------------------------------
+2026-03-01 15:38:41 | CPU: 32.6% | MEM: 12.08%
+2026-03-01 15:38:47 | CPU: 26.5% | MEM: 12.08%
+2026-03-01 15:38:52 | CPU: 15.2% | MEM: 12.15%
+2026-03-01 15:38:58 | CPU: 29% | MEM: 12.18%
+2026-03-01 15:39:03 | CPU: 19.4% | MEM: 12.18%
+2026-03-01 15:39:09 | CPU: 12.5% | MEM: 12.18%
+2026-03-01 15:39:14 | CPU: 20.6% | MEM: 12.18%
+2026-03-01 15:39:19 | CPU: 9.1% | MEM: 12.21%
+2026-03-01 15:39:25 | CPU: 3.3% | MEM: 12.21%
+2026-03-01 15:39:30 | CPU: 24.2% | MEM: 12.21%
+2026-03-01 15:39:36 | CPU: 3.2% | MEM: 12.21%
+2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%
+----------------------------------------
+Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026
 ```
 
 <br>
@@ -224,116 +224,116 @@ fi
 
 Hasil:<br>
 ```markdown
-2026-03-01 17:30:14 - Memulai backup /etc<br>
-2026-03-01 17:30:14 - /etc/<br>
-2026-03-01 17:30:14 - tar: Removing leading `/' from member names<br>
-2026-03-01 17:30:14 - /etc/rsyslog.conf<br>
-2026-03-01 17:30:14 - /etc/papersize<br>
-2026-03-01 17:30:14 - /etc/os-release<br>
-2026-03-01 17:30:14 - /etc/resolv.conf<br>
-2026-03-01 17:30:14 - /etc/pam.conf<br>
-2026-03-01 17:30:14 - /etc/hosts.deny<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-zeropage.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-magic-sysrq.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-ipv6-privacy.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-ptrace.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/README.sysctl<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-console-messages.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-kernel-hardening.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-map-count.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/99-sysctl.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-network-security.conf<br>
-2026-03-01 17:30:14 - /etc/sysctl.d/10-bufferbloat.conf<br>
-2026-03-01 17:30:14 - /etc/ghostscript/<br>
-2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/<br>
-2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan2.conf<br>
-2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf<br>
-2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-korea1.conf<br>
-2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-cns1.conf<br>
-2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan1.conf<br>
-2026-03-01 17:30:14 - /etc/ghostscript/fontmap.d/<br>
-2026-03-01 17:30:14 - /etc/ghostscript/fontmap.d/10fonts-urw-base35.conf<br>
-2026-03-01 17:30:14 - /etc/needrestart/<br>
-2026-03-01 17:30:14 - /etc/needrestart/needrestart.conf<br>
-2026-03-01 17:30:14 - /etc/needrestart/notify.conf<br>
-2026-03-01 17:30:14 - /etc/needrestart/hook.d/<br>
-2026-03-01 17:30:14 - /etc/needrestart/hook.d/90-none<br>
-2026-03-01 17:30:14 - /etc/needrestart/hook.d/20-rpm<br>
-2026-03-01 17:30:14 - /etc/needrestart/hook.d/10-dpkg<br>
-2026-03-01 17:30:14 - /etc/needrestart/notify.d/<br>
-2026-03-01 17:30:14 - /etc/needrestart/notify.d/400-notify-send<br>
-2026-03-01 17:30:14 - /etc/needrestart/notify.d/600-mail<br>
-2026-03-01 17:30:14 - /etc/needrestart/notify.d/200-write<br>
-2026-03-01 17:30:14 - /etc/needrestart/notify.d/README.needrestart<br>
-2026-03-01 17:30:14 - /etc/needrestart/iucode.sh<br>
-2026-03-01 17:30:14 - /etc/needrestart/restart.d/<br>
-2026-03-01 17:30:14 - /etc/needrestart/restart.d/sysv-init<br>
-2026-03-01 17:30:14 - /etc/needrestart/restart.d/README.needrestart<br>
-2026-03-01 17:30:14 - /etc/needrestart/restart.d/systemd-manager<br>
-2026-03-01 17:30:14 - /etc/needrestart/restart.d/dbus.service<br>
-2026-03-01 17:30:14 - /etc/needrestart/conf.d/<br>
-2026-03-01 17:30:14 - /etc/needrestart/conf.d/README.needrestart<br>
-2026-03-01 17:30:14 - /etc/crontab<br>
-2026-03-01 17:30:14 - /etc/networks<br>
-2026-03-01 17:30:14 - /etc/debian_version<br>
-2026-03-01 17:30:14 - /etc/sudo.conf<br>
-2026-03-01 17:30:14 - /etc/lsb-release<br>
-2026-03-01 17:30:14 - /etc/hdparm.conf<br>
-2026-03-01 17:30:14 - /etc/iproute2/<br>
-2026-03-01 17:30:14 - /etc/iproute2/ematch_map<br>
-2026-03-01 17:30:14 - /etc/iproute2/rt_realms<br>
-2026-03-01 17:30:14 - /etc/iproute2/group<br>
-2026-03-01 17:30:14 - /etc/iproute2/bpf_pinning<br>
-2026-03-01 17:30:14 - /etc/iproute2/rt_tables.d/<br>
-2026-03-01 17:30:14 - /etc/iproute2/rt_tables.d/README<br>
-2026-03-01 17:30:14 - /etc/iproute2/rt_scopes<br>
-2026-03-01 17:30:15 - /etc/iproute2/rt_protos<br>
-2026-03-01 17:30:15 - /etc/iproute2/rt_tables<br>
-2026-03-01 17:30:15 - /etc/iproute2/nl_protos<br>
-2026-03-01 17:30:15 - /etc/iproute2/rt_dsfield<br>
-2026-03-01 17:30:15 - /etc/iproute2/rt_protos.d/<br>
-2026-03-01 17:30:15 - /etc/iproute2/rt_protos.d/README<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/97-overlayroot<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/90-updates-available<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/91-contract-ua-esm-status<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/50-motd-news<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/10-help-text<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/98-reboot-required<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/95-hwe-eol<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/00-header<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/92-unattended-upgrades<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/85-fwupd<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/50-landscape-sysinfo<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/98-fsck-at-reboot<br>
-2026-03-01 17:30:15 - /etc/update-motd.d/91-release-upgrade<br>
-2026-03-01 17:30:15 - /etc/credstore.encrypted/<br>
-2026-03-01 17:30:15 - /etc/cryptsetup-initramfs/<br>
-2026-03-01 17:30:15 - /etc/cryptsetup-initramfs/conf-hook<br>
-2026-03-01 17:30:15 - /etc/wgetrc<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/update-initramfs.conf<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-bottom/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-premount/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-top/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-top/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/panic/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-bottom/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-premount/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-top/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-bottom/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-premount/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/initramfs.conf<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/modules<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/conf.d/<br>
-2026-03-01 17:30:15 - /etc/initramfs-tools/hooks/<br>
-2026-03-01 17:30:15 - /etc/xattr.conf<br>
-2026-03-01 17:30:15 - /etc/grub.d/<br>
-2026-03-01 17:30:15 - /etc/grub.d/10_linux<br>
-2026-03-01 17:30:15 - /etc/grub.d/35_fwupd<br>
-2026-03-01 17:30:15 - /etc/grub.d/00_header<br>
-2026-03-01 17:30:15 - /etc/grub.d/20_linux_xen<br>
-2026-03-01 17:30:15 - Backup BERHASIL: /backup/backup-2026-03-01_17-30-14.tar.gz<br>
+2026-03-01 17:30:14 - Memulai backup /etc
+2026-03-01 17:30:14 - /etc/
+2026-03-01 17:30:14 - tar: Removing leading `/' from member names
+2026-03-01 17:30:14 - /etc/rsyslog.conf
+2026-03-01 17:30:14 - /etc/papersize
+2026-03-01 17:30:14 - /etc/os-release
+2026-03-01 17:30:14 - /etc/resolv.conf
+2026-03-01 17:30:14 - /etc/pam.conf
+2026-03-01 17:30:14 - /etc/hosts.deny
+2026-03-01 17:30:14 - /etc/sysctl.d/
+2026-03-01 17:30:14 - /etc/sysctl.d/10-zeropage.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-magic-sysrq.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-ipv6-privacy.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-ptrace.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/README.sysctl
+2026-03-01 17:30:14 - /etc/sysctl.d/10-console-messages.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-kernel-hardening.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-map-count.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/99-sysctl.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-network-security.conf
+2026-03-01 17:30:14 - /etc/sysctl.d/10-bufferbloat.conf
+2026-03-01 17:30:14 - /etc/ghostscript/
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan2.conf
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-korea1.conf
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-cns1.conf
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan1.conf
+2026-03-01 17:30:14 - /etc/ghostscript/fontmap.d/
+2026-03-01 17:30:14 - /etc/ghostscript/fontmap.d/10fonts-urw-base35.conf
+2026-03-01 17:30:14 - /etc/needrestart/
+2026-03-01 17:30:14 - /etc/needrestart/needrestart.conf
+2026-03-01 17:30:14 - /etc/needrestart/notify.conf
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/90-none
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/20-rpm
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/10-dpkg
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/400-notify-send
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/600-mail
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/200-write
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/README.needrestart
+2026-03-01 17:30:14 - /etc/needrestart/iucode.sh
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/sysv-init
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/README.needrestart
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/systemd-manager
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/dbus.service
+2026-03-01 17:30:14 - /etc/needrestart/conf.d/
+2026-03-01 17:30:14 - /etc/needrestart/conf.d/README.needrestart
+2026-03-01 17:30:14 - /etc/crontab
+2026-03-01 17:30:14 - /etc/networks
+2026-03-01 17:30:14 - /etc/debian_version
+2026-03-01 17:30:14 - /etc/sudo.conf
+2026-03-01 17:30:14 - /etc/lsb-release
+2026-03-01 17:30:14 - /etc/hdparm.conf
+2026-03-01 17:30:14 - /etc/iproute2/
+2026-03-01 17:30:14 - /etc/iproute2/ematch_map
+2026-03-01 17:30:14 - /etc/iproute2/rt_realms
+2026-03-01 17:30:14 - /etc/iproute2/group
+2026-03-01 17:30:14 - /etc/iproute2/bpf_pinning
+2026-03-01 17:30:14 - /etc/iproute2/rt_tables.d/
+2026-03-01 17:30:14 - /etc/iproute2/rt_tables.d/README
+2026-03-01 17:30:14 - /etc/iproute2/rt_scopes
+2026-03-01 17:30:15 - /etc/iproute2/rt_protos
+2026-03-01 17:30:15 - /etc/iproute2/rt_tables
+2026-03-01 17:30:15 - /etc/iproute2/nl_protos
+2026-03-01 17:30:15 - /etc/iproute2/rt_dsfield
+2026-03-01 17:30:15 - /etc/iproute2/rt_protos.d/
+2026-03-01 17:30:15 - /etc/iproute2/rt_protos.d/README
+2026-03-01 17:30:15 - /etc/update-motd.d/
+2026-03-01 17:30:15 - /etc/update-motd.d/97-overlayroot
+2026-03-01 17:30:15 - /etc/update-motd.d/90-updates-available
+2026-03-01 17:30:15 - /etc/update-motd.d/91-contract-ua-esm-status
+2026-03-01 17:30:15 - /etc/update-motd.d/50-motd-news
+2026-03-01 17:30:15 - /etc/update-motd.d/10-help-text
+2026-03-01 17:30:15 - /etc/update-motd.d/98-reboot-required
+2026-03-01 17:30:15 - /etc/update-motd.d/95-hwe-eol
+2026-03-01 17:30:15 - /etc/update-motd.d/00-header
+2026-03-01 17:30:15 - /etc/update-motd.d/92-unattended-upgrades
+2026-03-01 17:30:15 - /etc/update-motd.d/85-fwupd
+2026-03-01 17:30:15 - /etc/update-motd.d/50-landscape-sysinfo
+2026-03-01 17:30:15 - /etc/update-motd.d/98-fsck-at-reboot
+2026-03-01 17:30:15 - /etc/update-motd.d/91-release-upgrade
+2026-03-01 17:30:15 - /etc/credstore.encrypted/
+2026-03-01 17:30:15 - /etc/cryptsetup-initramfs/
+2026-03-01 17:30:15 - /etc/cryptsetup-initramfs/conf-hook
+2026-03-01 17:30:15 - /etc/wgetrc
+2026-03-01 17:30:15 - /etc/initramfs-tools/
+2026-03-01 17:30:15 - /etc/initramfs-tools/update-initramfs.conf
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-bottom/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-premount/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-top/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-top/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/panic/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-bottom/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-premount/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-top/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-bottom/
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-premount/
+2026-03-01 17:30:15 - /etc/initramfs-tools/initramfs.conf
+2026-03-01 17:30:15 - /etc/initramfs-tools/modules
+2026-03-01 17:30:15 - /etc/initramfs-tools/conf.d/
+2026-03-01 17:30:15 - /etc/initramfs-tools/hooks/
+2026-03-01 17:30:15 - /etc/xattr.conf
+2026-03-01 17:30:15 - /etc/grub.d/
+2026-03-01 17:30:15 - /etc/grub.d/10_linux
+2026-03-01 17:30:15 - /etc/grub.d/35_fwupd
+2026-03-01 17:30:15 - /etc/grub.d/00_header
+2026-03-01 17:30:15 - /etc/grub.d/20_linux_xen
+2026-03-01 17:30:15 - Backup BERHASIL: /backup/backup-2026-03-01_17-30-14.tar.gz<
 ```

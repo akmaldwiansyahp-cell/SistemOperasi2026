@@ -113,6 +113,8 @@ echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
 echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"
 </code>
 
+<br>
+
 - Menyimpan file<br>
 <code>nano monitor.sh</code>
 - Permission<br>

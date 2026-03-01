@@ -162,10 +162,12 @@ Implementasikan script backup yang:
 5. Menambahkan timestamp di setiap log entry<br>
 
 Kode Program:<br>
+- Buat file<br>
 <code>nano backup.sh</code>
 
 <br>
 
+- Script<br>
 >#!/bin/bash
 >
 >SOURCE_DIR="/etc"          # contoh direktori yang mau dibackup
@@ -202,3 +204,124 @@ Kode Program:<br>
 >    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup GAGAL!" | tee -a "$ERROR_LOG" >&2
 >    exit 1
 >fi
+
+<br>
+
+- Permission<br>
+<code>chmod +x backup.sh</code>
+- Menjalankan<br>
+<code>sudo ./backup.sh</code><br>
+
+Hasil:<br>
+2026-03-01 17:30:14 - Memulai backup /etc<br>
+2026-03-01 17:30:14 - /etc/<br>
+2026-03-01 17:30:14 - tar: Removing leading `/' from member names<br>
+2026-03-01 17:30:14 - /etc/rsyslog.conf<br>
+2026-03-01 17:30:14 - /etc/papersize<br>
+2026-03-01 17:30:14 - /etc/os-release<br>
+2026-03-01 17:30:14 - /etc/resolv.conf<br>
+2026-03-01 17:30:14 - /etc/pam.conf<br>
+2026-03-01 17:30:14 - /etc/hosts.deny<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-zeropage.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-magic-sysrq.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-ipv6-privacy.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-ptrace.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/README.sysctl<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-console-messages.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-kernel-hardening.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-map-count.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/99-sysctl.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-network-security.conf<br>
+2026-03-01 17:30:14 - /etc/sysctl.d/10-bufferbloat.conf<br>
+2026-03-01 17:30:14 - /etc/ghostscript/<br>
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/<br>
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan2.conf<br>
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf<br>
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-korea1.conf<br>
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-cns1.conf<br>
+2026-03-01 17:30:14 - /etc/ghostscript/cidfmap.d/90gs-cjk-resource-japan1.conf<br>
+2026-03-01 17:30:14 - /etc/ghostscript/fontmap.d/<br>
+2026-03-01 17:30:14 - /etc/ghostscript/fontmap.d/10fonts-urw-base35.conf<br>
+2026-03-01 17:30:14 - /etc/needrestart/<br>
+2026-03-01 17:30:14 - /etc/needrestart/needrestart.conf<br>
+2026-03-01 17:30:14 - /etc/needrestart/notify.conf<br>
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/<br>
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/90-none<br>
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/20-rpm<br>
+2026-03-01 17:30:14 - /etc/needrestart/hook.d/10-dpkg<br>
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/<br>
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/400-notify-send<br>
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/600-mail<br>
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/200-write<br>
+2026-03-01 17:30:14 - /etc/needrestart/notify.d/README.needrestart<br>
+2026-03-01 17:30:14 - /etc/needrestart/iucode.sh<br>
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/<br>
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/sysv-init<br>
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/README.needrestart<br>
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/systemd-manager<br>
+2026-03-01 17:30:14 - /etc/needrestart/restart.d/dbus.service<br>
+2026-03-01 17:30:14 - /etc/needrestart/conf.d/<br>
+2026-03-01 17:30:14 - /etc/needrestart/conf.d/README.needrestart<br>
+2026-03-01 17:30:14 - /etc/crontab<br>
+2026-03-01 17:30:14 - /etc/networks<br>
+2026-03-01 17:30:14 - /etc/debian_version<br>
+2026-03-01 17:30:14 - /etc/sudo.conf<br>
+2026-03-01 17:30:14 - /etc/lsb-release<br>
+2026-03-01 17:30:14 - /etc/hdparm.conf<br>
+2026-03-01 17:30:14 - /etc/iproute2/<br>
+2026-03-01 17:30:14 - /etc/iproute2/ematch_map<br>
+2026-03-01 17:30:14 - /etc/iproute2/rt_realms<br>
+2026-03-01 17:30:14 - /etc/iproute2/group<br>
+2026-03-01 17:30:14 - /etc/iproute2/bpf_pinning<br>
+2026-03-01 17:30:14 - /etc/iproute2/rt_tables.d/<br>
+2026-03-01 17:30:14 - /etc/iproute2/rt_tables.d/README<br>
+2026-03-01 17:30:14 - /etc/iproute2/rt_scopes<br>
+2026-03-01 17:30:15 - /etc/iproute2/rt_protos<br>
+2026-03-01 17:30:15 - /etc/iproute2/rt_tables<br>
+2026-03-01 17:30:15 - /etc/iproute2/nl_protos<br>
+2026-03-01 17:30:15 - /etc/iproute2/rt_dsfield<br>
+2026-03-01 17:30:15 - /etc/iproute2/rt_protos.d/<br>
+2026-03-01 17:30:15 - /etc/iproute2/rt_protos.d/README<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/97-overlayroot<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/90-updates-available<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/91-contract-ua-esm-status<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/50-motd-news<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/10-help-text<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/98-reboot-required<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/95-hwe-eol<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/00-header<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/92-unattended-upgrades<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/85-fwupd<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/50-landscape-sysinfo<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/98-fsck-at-reboot<br>
+2026-03-01 17:30:15 - /etc/update-motd.d/91-release-upgrade<br>
+2026-03-01 17:30:15 - /etc/credstore.encrypted/<br>
+2026-03-01 17:30:15 - /etc/cryptsetup-initramfs/<br>
+2026-03-01 17:30:15 - /etc/cryptsetup-initramfs/conf-hook<br>
+2026-03-01 17:30:15 - /etc/wgetrc<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/update-initramfs.conf<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-bottom/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-premount/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-top/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-top/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/panic/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/init-bottom/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-premount/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-top/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/local-bottom/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/scripts/nfs-premount/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/initramfs.conf<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/modules<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/conf.d/<br>
+2026-03-01 17:30:15 - /etc/initramfs-tools/hooks/<br>
+2026-03-01 17:30:15 - /etc/xattr.conf<br>
+2026-03-01 17:30:15 - /etc/grub.d/<br>
+2026-03-01 17:30:15 - /etc/grub.d/10_linux<br>
+2026-03-01 17:30:15 - /etc/grub.d/35_fwupd<br>
+2026-03-01 17:30:15 - /etc/grub.d/00_header<br>
+2026-03-01 17:30:15 - /etc/grub.d/20_linux_xen<br>
+2026-03-01 17:30:15 - Backup BERHASIL: /backup/backup-2026-03-01_17-30-14.tar.gz<br>

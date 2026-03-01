@@ -96,16 +96,13 @@ Kode Program:<br>
 >do<br>
 >    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")<br>
 ><br>
->    #Ambil CPU usage (persen)<br>
 >    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')<br>
 >    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")<br>
 ><br>
->    #Ambil memory usage<br>
 >    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')<br>
 ><br>
 >    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"<br>
 ><br>
->    #Tampilkan ke terminal dan simpan ke file<br>
 >    echo "$OUTPUT" | tee -a "$LOG_FILE"<br>
 ><br>
 >    sleep $INTERVAL<br>
@@ -150,6 +147,58 @@ Buat perintah yang:
 4. Menyimpan daftar path lengkap ke file<br>
 
 Kode Program:<br>
-<code>find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l</code>
+<code>find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l</code><br>
 
+Hasil:<br>
 >402
+
+<br>
+
+Implementasikan script backup yang:
+1. Menggunakan tar untuk backup direktori
+2. Menampilkan progress dengan tee
+3. Mencatat stdout ke backup-success.log
+4. Mencatat stderr ke backup-error.log
+5. Menambahkan timestamp di setiap log entry<br>
+
+Kode Program:<br>
+<code>nano backup.sh</code>
+
+<br>
+
+>#!/bin/bash
+>
+>SOURCE_DIR="/etc"          # contoh direktori yang mau dibackup
+>BACKUP_DIR="/backup"       # contoh direktori penyimpanan backup
+>
+>TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+>BACKUP_FILE="$BACKUP_DIR/backup-$TIMESTAMP.tar.gz"
+>
+>SUCCESS_LOG="$BACKUP_DIR/backup-success.log"
+>ERROR_LOG="$BACKUP_DIR/backup-error.log"
+>
+>log_with_timestamp() {
+>    while IFS= read -r line; do
+>        echo "$(date '+%Y-%m-%d %H:%M:%S') - $line"
+>    done
+>}
+>
+>if [ ! -d "$SOURCE_DIR" ]; then
+>    echo "$(date '+%Y-%m-%d %H:%M:%S') - ERROR: Direktori sumber tidak ditemukan: $SOURCE_DIR"
+>    exit 1
+>fi
+>
+>mkdir -p "$BACKUP_DIR"
+>
+>echo "$(date '+%Y-%m-%d %H:%M:%S') - Memulai backup $SOURCE_DIR"
+>
+>tar -czvf "$BACKUP_FILE" "$SOURCE_DIR" \
+>    > >(log_with_timestamp | tee -a "$SUCCESS_LOG") \
+>    2> >(log_with_timestamp | tee -a "$ERROR_LOG" >&2)
+>
+>if [ $? -eq 0 ]; then
+>    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup BERHASIL: $BACKUP_FILE" | tee -a "$SUCCESS_LOG"
+>else
+>    echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup GAGAL!" | tee -a "$ERROR_LOG" >&2
+>    exit 1
+>fi

@@ -188,7 +188,9 @@ Implementasikan script backup yang:
 
 Kode Program:<br>
 - Buat file<br>
-<code>nano backup.sh</code>
+```markdown
+nano backup.sh
+```
 
 <br>
 

@@ -136,3 +136,14 @@ Tulis script monitoring yang:
 >2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%<br>
 >----------------------------------------<br>
 >Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026<br>
+
+Buat perintah yang:
+1. Mencari semua file .conf di sistem
+2. Membuang pesan "Permission denied"
+3. Menghitung jumlah file yang ditemukan
+4. Menyimpan daftar path lengkap ke file
+
+
+<code>find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l</code>
+
+>402

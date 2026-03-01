@@ -24,6 +24,7 @@ Buatlah script yang:
 >8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~
 
 <br>
+
 Latihan 3.2
 Buat pipeline yang:
 1. Membaca /etc/passwd

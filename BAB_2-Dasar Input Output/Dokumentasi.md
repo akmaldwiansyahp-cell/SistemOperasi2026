@@ -11,7 +11,7 @@ Buatlah script yang:
 
 <code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code>
 
->
+
 >377M    /var/log/
 >371M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd
 >371M    /var/log/journal
@@ -22,8 +22,8 @@ Buatlah script yang:
 >8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system.journal
 >8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf642e801bb-fe79b3cba04be1b0.journal~
 >8.0M    /var/log/journal/df3c006b6b1b4d1eb2679c433b998cbd/system@00064bf1052d2981-a8f8066f50e2cf99.journal~
->
 
+<br>
 Latihan 3.2
 Buat pipeline yang:
 1. Membaca /etc/passwd

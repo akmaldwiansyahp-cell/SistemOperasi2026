@@ -1,7 +1,7 @@
 # Laporan Sistem Operasi Jobsheet 3
 
 
-Latihan 3.1
+## Latihan 3.1
 Buatlah script yang:
 1. Menampilkan daftar 10 file terbesar di direktori /var/log/
 2. Menyimpan hasilnya ke file large-logs.txt
@@ -9,7 +9,9 @@ Buatlah script yang:
 4. Menangani error dengan redirect ke error.log<br>
 
 Kode Program:<br>
-<code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code><br>
+```markdown
+du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt
+```
 
 Hasil:<br>
 ```markdown
@@ -27,7 +29,7 @@ Hasil:<br>
 
 <br>
 
-Latihan 3.2
+## Latihan 3.2
 Buat pipeline yang:
 1. Membaca /etc/passwd
 2. Mengekstrak username (kolom pertama)
@@ -36,7 +38,9 @@ Buat pipeline yang:
 Hint: Gunakan cut, sort, dan operator redirect.<br>
 
 Kode Program:<br>
-<code>cut -d: -f1 /etc/passwd | sort > sorted-users.txt</code><br>
+```markdown
+cut -d: -f1 /etc/passwd | sort > sorted-users.txt
+```
 
 Hasil:<br>
 ```markdown
@@ -78,6 +82,7 @@ www-data
 
 <br>
 
+## Latihan 3.3
 Tulis script monitoring yang:
 1. Mencatat penggunaan CPU dan memory setiap 5 detik
 2. Menyimpan log dengan timestamp
@@ -85,44 +90,52 @@ Tulis script monitoring yang:
 4. Output ditampilkan di terminal DAN disimpan ke file<br>
 
 Kode Program:<br>
+
 - Script bash<br>
 
->#!/bin/bash<br>
->
->LOG_FILE="monitor.log"<br>
->INTERVAL=5<br>
->ITERATIONS=12<br>
-><br>
->echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"<br>
->echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
-><br>
->for ((i=1; i<=ITERATIONS; i++))<br>
->do<br>
->    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")<br>
-><br>
->    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')<br>
->    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")<br>
-><br>
->    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')<br>
-><br>
->    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"<br>
-><br>
->    echo "$OUTPUT" | tee -a "$LOG_FILE"<br>
-><br>
->    sleep $INTERVAL<br>
->done<br>
-><br>
->echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
->echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"
+```markdown
+#!/bin/bash
+LOG_FILE="monitor.log"
+INTERVAL=5
+ITERATIONS=12
+
+echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"
+echo "----------------------------------------" | tee -a "$LOG_FILE"
+
+for ((i=1; i<=ITERATIONS; i++))
+do
+    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')
+    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")
+
+    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')
+
+    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"
+
+    echo "$OUTPUT" | tee -a "$LOG_FILE"
+
+    sleep $INTERVAL
+done
+
+echo "----------------------------------------" | tee -a "$LOG_FILE"
+echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"
+```
 
 <br>
 
 - Menyimpan file<br>
-<code>nano monitor.sh</code>
+```markdown
+nano monitor.sh
+```
 - Permission<br>
-<code>chmod +x monitor.sh</code>
+```markdown
+chmod +x monitor.sh
+```
 - Menjalankan<br>
-<code>./monitor.sh</code><br>
+```markdown
+./monitor.sh
+```
 
 Hasil:<br>
 ```markdown
@@ -146,6 +159,7 @@ Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026
 
 <br>
 
+## Latihan 3.4
 Buat perintah yang:
 1. Mencari semua file .conf di sistem
 2. Membuang pesan "Permission denied"
@@ -153,7 +167,9 @@ Buat perintah yang:
 4. Menyimpan daftar path lengkap ke file<br>
 
 Kode Program:<br>
-<code>find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l</code><br>
+```markdown
+find / -type f -name "*.conf" 2>/dev/null | tee daftar_conf.txt | wc -l
+```
 
 Hasil:<br>
 ```markdown
@@ -162,6 +178,7 @@ Hasil:<br>
 
 <br>
 
+## Latihan 3.5
 Implementasikan script backup yang:
 1. Menggunakan tar untuk backup direktori
 2. Menampilkan progress dengan tee

@@ -79,9 +79,6 @@ Tulis script monitoring yang:
 
 
 - Script bash<br>
-<br>
-
-
 
 >#!/bin/bash<br>
 >

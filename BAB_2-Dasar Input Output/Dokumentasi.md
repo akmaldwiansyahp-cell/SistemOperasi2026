@@ -79,7 +79,7 @@ Tulis script monitoring yang:
 
 
 - Script bash<br>
-<code>#!/bin/bash<br>
+``#!/bin/bash<br>
 <br>
 LOG_FILE="monitor.log"<br>
 INTERVAL=5<br>
@@ -108,7 +108,7 @@ do<br>
 done<br>
 <br>
 echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
-echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"</code>
+echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"``
 
 - Menyimpan file<br>
 <code>nano monitor.sh</code>

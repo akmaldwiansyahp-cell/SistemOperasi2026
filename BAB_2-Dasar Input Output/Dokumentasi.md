@@ -8,7 +8,6 @@ Buatlah script yang:
 3. Menampilkan output juga di terminal menggunakan tee
 4. Menangani error dengan redirect ke error.log
 
-
 <code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code>
 
 
@@ -32,3 +31,40 @@ Buat pipeline yang:
 3. Mengurutkan alfabetis
 4. Menyimpan ke file sorted-users.txt
 Hint: Gunakan cut, sort, dan operator redirect.
+
+<code>cut -d: -f1 /etc/passwd | sort > sorted-users.txt</code>
+
+>_apt
+>backup
+>bin
+>daemon
+>dhcpcd
+>fwupd-refresh
+>games
+>irc
+>landscape
+>list
+>lp
+>mail
+>man
+>messagebus
+>news
+>nobody
+>pluto
+>polkitd
+>pollinate
+>proxy
+>root
+>sshd
+>sync
+>sys
+>syslog
+>systemd-network
+>systemd-resolve
+>systemd-timesync
+>tcpdump
+>tss
+>usbmux
+>uucp
+>uuidd
+>www-data

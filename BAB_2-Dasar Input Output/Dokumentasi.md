@@ -9,7 +9,7 @@
 >4. Menangani error dengan redirect ke error.log
 >
 
-' du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt '
+'' du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt ''
 
 >
 >377M    /var/log/

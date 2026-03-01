@@ -6,8 +6,9 @@ Buatlah script yang:
 1. Menampilkan daftar 10 file terbesar di direktori /var/log/
 2. Menyimpan hasilnya ke file large-logs.txt
 3. Menampilkan output juga di terminal menggunakan tee
-4. Menangani error dengan redirect ke error.log
+4. Menangani error dengan redirect ke error.log<br>
 
+Kode Program:<br>
 <code> du -ah /var/log/ 2>error.log | sort -rh | head -n 10 | tee large-logs.txt </code>
 
 
@@ -30,8 +31,9 @@ Buat pipeline yang:
 2. Mengekstrak username (kolom pertama)
 3. Mengurutkan alfabetis
 4. Menyimpan ke file sorted-users.txt
-Hint: Gunakan cut, sort, dan operator redirect.
+Hint: Gunakan cut, sort, dan operator redirect.<br>
 
+Kode Program:<br>
 <code>cut -d: -f1 /etc/passwd | sort > sorted-users.txt</code>
 
 >_apt<br>
@@ -75,9 +77,9 @@ Tulis script monitoring yang:
 1. Mencatat penggunaan CPU dan memory setiap 5 detik
 2. Menyimpan log dengan timestamp
 3. Berjalan selama 1 menit (12 iterasi)
-4. Output ditampilkan di terminal DAN disimpan ke file
+4. Output ditampilkan di terminal DAN disimpan ke file<br>
 
-
+Kode Program:<br>
 - Script bash<br>
 
 >#!/bin/bash<br>
@@ -136,6 +138,8 @@ Tulis script monitoring yang:
 >2026-03-01 15:39:41 | CPU: 20.6% | MEM: 12.21%<br>
 >----------------------------------------<br>
 >Monitoring finished at Sun Mar  1 03:39:47 PM UTC 2026<br>
+
+<br>
 
 Buat perintah yang:
 1. Mencari semua file .conf di sistem

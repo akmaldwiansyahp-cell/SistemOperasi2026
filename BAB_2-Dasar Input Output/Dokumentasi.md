@@ -80,38 +80,39 @@ Tulis script monitoring yang:
 
 - Script bash<br>
 <br>
-<code>
-#!/bin/bash<br>
 
-LOG_FILE="monitor.log"<br>
-INTERVAL=5<br>
-ITERATIONS=12<br>
-<br>
-echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"<br>
-echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
-<br>
-for ((i=1; i<=ITERATIONS; i++))<br>
-do<br>
-    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")<br>
-<br>
-    # Ambil CPU usage (persen)<br>
-    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')<br>
-    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")<br>
-<br>
-    # Ambil memory usage<br>
-    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')<br>
-<br>
-    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"<br>
-<br>
-    # Tampilkan ke terminal dan simpan ke file<br>
-    echo "$OUTPUT" | tee -a "$LOG_FILE"<br>
-<br>
-    sleep $INTERVAL<br>
-done<br>
-<br>
-echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
-echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"
-</code>
+
+
+>#!/bin/bash<br>
+>
+>LOG_FILE="monitor.log"<br>
+>INTERVAL=5<br>
+>ITERATIONS=12<br>
+><br>
+>echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"<br>
+>echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
+><br>
+>for ((i=1; i<=ITERATIONS; i++))<br>
+>do<br>
+>    TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")<br>
+><br>
+>    #Ambil CPU usage (persen)<br>
+>    CPU_IDLE=$(top -bn1 | grep "Cpu(s)" | awk '{print $8}' | sed 's/id,//')<br>
+>    CPU_USAGE=$(awk "BEGIN {print 100 - $CPU_IDLE}")<br>
+><br>
+>    #Ambil memory usage<br>
+>    MEM_USAGE=$(free -m | awk '/Mem:/ {printf "%.2f", $3/$2 * 100}')<br>
+><br>
+>    OUTPUT="$TIMESTAMP | CPU: ${CPU_USAGE}% | MEM: ${MEM_USAGE}%"<br>
+><br>
+>    #Tampilkan ke terminal dan simpan ke file<br>
+>    echo "$OUTPUT" | tee -a "$LOG_FILE"<br>
+><br>
+>    sleep $INTERVAL<br>
+>done<br>
+><br>
+>echo "----------------------------------------" | tee -a "$LOG_FILE"<br>
+>echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"
 
 <br>
 

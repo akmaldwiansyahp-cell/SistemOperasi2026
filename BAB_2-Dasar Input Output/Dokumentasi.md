@@ -213,6 +213,7 @@ Kode Program:<br>
 <code>sudo ./backup.sh</code><br>
 
 Hasil:<br>
+```markdown
 2026-03-01 17:30:14 - Memulai backup /etc<br>
 2026-03-01 17:30:14 - /etc/<br>
 2026-03-01 17:30:14 - tar: Removing leading `/' from member names<br>
@@ -325,3 +326,4 @@ Hasil:<br>
 2026-03-01 17:30:15 - /etc/grub.d/00_header<br>
 2026-03-01 17:30:15 - /etc/grub.d/20_linux_xen<br>
 2026-03-01 17:30:15 - Backup BERHASIL: /backup/backup-2026-03-01_17-30-14.tar.gz<br>
+```

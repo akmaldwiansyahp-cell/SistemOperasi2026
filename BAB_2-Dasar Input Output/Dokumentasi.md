@@ -237,9 +237,13 @@ fi
 <br>
 
 - Permission<br>
-<code>chmod +x backup.sh</code>
+```markdown
+chmod +x backup.sh
+```
 - Menjalankan<br>
-<code>sudo ./backup.sh</code><br>
+```markdown
+sudo ./backup.sh
+```
 
 Hasil:<br>
 ```markdown

@@ -80,14 +80,11 @@ Tulis script monitoring yang:
 
 - Script bash
 <code>#!/bin/bash
-
 LOG_FILE="monitor.log"
 INTERVAL=5
 ITERATIONS=12
-
 echo "Monitoring started at $(date)" | tee -a "$LOG_FILE"
 echo "----------------------------------------" | tee -a "$LOG_FILE"
-
 for ((i=1; i<=ITERATIONS; i++))
 do
     TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
@@ -106,7 +103,6 @@ do
 
     sleep $INTERVAL
 done
-
 echo "----------------------------------------" | tee -a "$LOG_FILE"
 echo "Monitoring finished at $(date)" | tee -a "$LOG_FILE"</code>
 - Menyimpan file

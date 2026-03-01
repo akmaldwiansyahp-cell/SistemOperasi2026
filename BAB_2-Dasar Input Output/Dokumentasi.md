@@ -80,7 +80,7 @@ Tulis script monitoring yang:
 
 - Script bash<br>
 ``#!/bin/bash<br>
-<br>
+
 LOG_FILE="monitor.log"<br>
 INTERVAL=5<br>
 ITERATIONS=12<br>

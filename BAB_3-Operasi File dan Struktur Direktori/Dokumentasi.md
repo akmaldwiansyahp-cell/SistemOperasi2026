@@ -3488,3 +3488,133 @@ Contoh: echo 1 > /proc/sys/net/ipv4/ip_forward dapat mengubah setting kernel tan
 Informasi selalu up-to-date karena diambil langsung dari kernel saat file dibaca<br>
 
 Tidak ada "file" fisik yang perlu diperbarui secara berkala
+
+5. Ubahlah direktory home ke user lain secara langsung menggunakan cd ~username.
+```markdown
+pluto@Ubuntu-Server-Lab:~/A$ cd ~pluto
+pluto@Ubuntu-Server-Lab:~$
+```
+
+6. Ubah kembali ke direktory home Anda.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ cd /home
+pluto@Ubuntu-Server-Lab:/home$
+```
+
+7. Buat subdirektory work dan play.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ mkdir work play
+pluto@Ubuntu-Server-Lab:~$
+```
+
+8. Hapus subdirektory work.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ rmdir work
+pluto@Ubuntu-Server-Lab:~$
+```
+
+9. Copy file /etc/passwd ke direktory home Anda.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ cp /etc/passwd /home/pluto/
+pluto@Ubuntu-Server-Lab:~$
+```
+
+10. Pindahkan ke subdirectory play.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ mv passwd play/
+pluto@Ubuntu-Server-Lab:~$
+```
+
+11. Ubahlah ke subdirektory play dan buat symbolic link dengan nama terminal yang menunjuk ke perangkat tty. Apa yang terjadi jika melakukan hard link ke perangkat tty?
+```markdown
+pluto@Ubuntu-Server-Lab:~$ cd play
+pluto@Ubuntu-Server-Lab:~/play$ ln -s /dev/tty terminal
+pluto@Ubuntu-Server-Lab:~/play$ ls -l terminal
+lrwxrwxrwx 1 pluto pluto 8 Mar  8 10:02 terminal -> /dev/tty
+pluto@Ubuntu-Server-Lab:~/play$
+```
+Hard link tidak dapat dibuat ke device file karena hard link hanya bekerja pada filesystem yang sama dan untuk file regular
+
+12. Buatlah file bernama hello.txt yang berisi kata "hello word". Dapatkah Anda gunakan "cp" menggunakan "terminal" sebagai file asal untuk menghasilkan efek yang sama?
+```markdown
+pluto@Ubuntu-Server-Lab:~/play$ echo "hello world" > hello.txt
+pluto@Ubuntu-Server-Lab:~/play$ cat hello.txt
+hello world
+pluto@Ubuntu-Server-Lab:~/play$ cp terminal hello2.txt
+hello world
+pluto@Ubuntu-Server-Lab:~/play$ cat terminal hello2.txt
+hello world
+pluto@Ubuntu-Server-Lab:~/play$
+```
+
+13. Copy hello.txt ke terminal. Apa yang terjadi?
+```markdown
+pluto@Ubuntu-Server-Lab:~/play$ cp hello.txt terminal
+hello world
+pluto@Ubuntu-Server-Lab:~/play$
+```
+
+14. Masih di direktory home, copy keseluruhan direktory play ke direktory bernama work menggunakan symbolic link.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ ln -s play work
+pluto@Ubuntu-Server-Lab:~$ ls -l work
+lrwxrwxrwx 1 pluto pluto 4 Mar  8 10:17 work -> play
+pluto@Ubuntu-Server-Lab:~$ cp -r play/* work/
+cp: 'play/hello2.txt' and 'work/hello2.txt' are the same file
+cp: 'play/hello.txt' and 'work/hello.txt' are the same file
+cp: 'play/passwd' and 'work/passwd' are the same file
+cp: 'play/terminal' and 'work/terminal' are the same file
+pluto@Ubuntu-Server-Lab:~$
+```
+
+15. Hapus direktory work dan isinya dengan satu perintah.
+```markdown
+pluto@Ubuntu-Server-Lab:~$ rm -rf work
+pluto@Ubuntu-Server-Lab:~$
+```
+
+## Laporan Resmi
+Analisa hasil percobaan yang Anda lakukan:
+a. Analisa setiap hasil tampilannya.
+b. Pada Percobaan 1 point 3 buatlah pohon dari struktur file dan direktori.
+**Jawab**<br>
+```markdown
+home/
+└── user/
+    ├── A/
+    │   ├── D/
+    │   │   └── A/
+    │   └── E/
+    ├── B/
+    │   └── F/
+    └── C/
+```
+c. Bila terdapat pesan error, jelaskan penyebabnya.
+
+Kerjakan latihan diatas dan analisa hasil tampilannya.
+
+Berikan kesimpulan dari praktikum ini.
+**Jawab**<br>
+- Perintah navigasi: pwd (posisi saat ini), cd (pindah direktori), ls (melihat isi).
+
+- Perintah manipulasi direktori: mkdir (membuat), rmdir (menghapus direktori kosong).
+
+- Perintah manipulasi file: cp (mengkopi), mv (memindah/mengganti nama), rm (menghapus).
+
+- Penggunaan opsi seperti -r (recursive), -i (interactive), -f (force) sangat penting dalam operasi file.
+
+- Hard Link: Membuat nama file tambahan dengan inode yang sama. Jika file asli dihapus, data masih dapat diakses melalui hard link. Terbatas pada satu filesystem dan tidak bisa untuk direktori.
+
+- Soft Link (Symbolic Link): Membuat shortcut yang menunjuk ke nama file. Jika file asli dihapus, link menjadi rusak (broken). Dapat melintasi filesystem dan bisa untuk direktori.
+
+- Perbedaan utama terlihat dari jumlah link pada ls -l dan tipe file (l untuk symbolic link).
+
+- find - Mencari file berdasarkan kriteria (nama, ukuran, waktu) secara real-time.
+
+- locate - Mencari file cepat menggunakan database (diupdate secara periodik).
+
+- which - Mengetahui lokasi executable program.
+
+- grep - Mencari pattern/text di dalam file.
+
+

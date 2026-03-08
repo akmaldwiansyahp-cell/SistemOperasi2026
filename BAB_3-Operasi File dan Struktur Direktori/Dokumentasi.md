@@ -3467,24 +3467,24 @@ pluto@Ubuntu-Server-Lab:/proc$ cat uptime
 10432.05 30727.01
 ```
 
-- Tidak Menyimpan Data Secara Fisik
+- Tidak Menyimpan Data Secara Fisik<br>
 File-file di /proc tidak benar-benar ada di disk, melainkan dibuat secara dinamis oleh kernel saat diakses<br>
 
 Ukuran file biasanya menunjukkan 0 byte jika dilihat dengan ls -l, tetapi saat dibaca berisi data
 
-- Antarmuka ke Kernel
+- Antarmuka ke Kernel<br>
 Setiap file mewakili informasi real-time tentang keadaan kernel dan sistem<br>
 
 Saat Anda membaca /proc/cpuinfo, kernel secara langsung mengambil data dari struktur internalnya<br>
 
 Contoh: /proc/meminfo mengambil data langsung dari manajemen memori kernel
 
-- Komunikasi Dua Arah
+- Komunikasi Dua Arah<br>
 Beberapa file dapat ditulis untuk mengubah parameter kernel secara dinamis<br>
 
 Contoh: echo 1 > /proc/sys/net/ipv4/ip_forward dapat mengubah setting kernel tanpa reboot
 
-- Data Real-time
+- Data Real-time<br>
 Informasi selalu up-to-date karena diambil langsung dari kernel saat file dibaca<br>
 
 Tidak ada "file" fisik yang perlu diperbarui secara berkala

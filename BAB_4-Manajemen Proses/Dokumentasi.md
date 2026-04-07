@@ -128,7 +128,7 @@ root         658  0.6  0.4 392100 13064 ?        Ssl  15:05   0:00 /usr/sbin/Mod
 syslog       665  0.3  0.1 222508  5964 ?        Ssl  15:05   0:00 /usr/sbin/rsyslogd -n -iNONE
 root         666  0.0  0.0      0     0 ?        I<   15:05   0:00 [kworker/R-cfg80]
 root         667  0.0  0.0      0     0 ?        I    15:05   0:00 [kworker/2:3-mm_percpu_wq]
-root         672  1.0  0.7 109640 23148 ?        Ssl  15:05   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unatt
+root         672  1.0  0.7 109640 23148 ?        Ssl  15:05   0:00 /usr/bin/Markdown3 /usr/share/unattended-upgrades/unatt
 root         703  0.0  0.0      0     0 ?        S    15:05   0:00 [irq/18-vmwgfx]
 root         706  0.0  0.0      0     0 ?        I<   15:05   0:00 [kworker/R-ttm]
 root         716  0.0  0.0   6824  2904 ?        Ss   15:05   0:00 /usr/sbin/cron -f -P
@@ -750,5 +750,350 @@ pluto@Ubuntu-Server-Lab:~$
 ```
 
 ## Praktikum 6.5
+
+1. Membuat tiga job di background
+
+Kode Program:<br>
+```markdown
+sleep 200 &
+sleep 300 &
+sleep 400 &
+jobs
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ sleep 200 &
+sleep 300 &
+sleep 400 &
+jobs
+[1] 1069
+[2] 1070
+[3] 1071
+[1]   Running                 sleep 200 &
+[2]-  Running                 sleep 300 &
+[3]+  Running                 sleep 400 &
+```
+
+2. Memindahkan job antar foreground-background
+
+Kode Program:<br>
+```markdown
+fg %1
+# Tekan Ctrl +Z untuk menjeda
+bg %1
+jobs
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ fg %1
+sleep 200
+^Z
+[1]+  Stopped  
+pluto@Ubuntu-Server-Lab:~$ bg %1
+jobs
+[1]+ sleep 200 &
+[1]   Running                 sleep 200 &
+[2]-  Running                 sleep 300 &
+[3]+  Running                 sleep 400 &
+```
+
+3. Menghentikan semua job
+
+Kode Program:<br>
+```Markdown
+kill %1 %2 %3
+jobs
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ kill %1 %2 %3
+jobs
+[1]   Terminated              sleep 200
+[2]-  Running                 sleep 300 &
+[3]+  Running                 sleep 400 &
+
+## Latihan 6.5
+
+1. Jalankan top di foreground. Apa yang terjadi di terminal?
+**Jawab**<br>
+Terminal akan berubah menjadi tampilan real-time dari proses-proses yang sedang berjalan, penggunaan CPU memory, dan lain-lain. top berjalan dalam mode interactive foreground, terminal terikat sepenuhnya pada proses ini sampai dihentikan.
+2. Tekan Ctrl+Z dan cek statusnya dengan jobs. Kondisi apa yang ditampilkan?
+**Jawab**<br>
+Proses top berstatus Stopped (ditangguhkan/suspended) karena menerima sinyal SIGTSTP dari Ctrl+Z. Proses tidak berjalan, tetapi masih ada dalam sesi shell dan bisa dilanjutkan.
+3. Pindahkan ke background dengan bg. Apakah top dapat berjalan dengan baik di background? Mengapa?
+**Jawab**<br>
+- top membutuhkan terminal untuk menampilkan antarmuka interaktif (termasuk menangani tombol seperti q untuk keluar).
+
+- Ketika di background, top tetap mencoba menulis ke terminal, tetapi shell akan memblokir atau mengirim sinyal SIGTTOU, menyebabkan proses berhenti lagi atau berjalan tidak normal.
+
+- Biasanya, top akan langsung berhenti (stopped) lagi atau outputnya kacau karena tidak bisa mengakses terminal secara penuh.
+4. Kembalikan ke foreground dengan fg, lalu keluar dengan q .
+
+## Praktikum 6.6
+
+1.  Proses dengan resource tertinggi
+
+Kode Program:<br>
+```markdown
+ps aux -- sort = -% cpu | head -10
+ps aux -- sort = -% mem | head -10
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ ps aux --sort=-%cpu | head -10
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+pluto       1273  100  0.1  10884  4600 pts/0    R+   18:49   0:00 ps aux --sort=-%cpu
+pluto       1274 50.0  0.0   5696  2060 pts/0    S+   18:49   0:00 head -10
+root        1234  0.4  0.0      0     0 ?        I    18:35   0:04 [kworker/1:1-events]
+root        1238  0.2  0.0      0     0 ?        I    18:37   0:01 [kworker/0:1-events]
+root        1206  0.1  0.0      0     0 ?        I    18:20   0:03 [kworker/2:2-mm_percpu_wq]
+root        1236  0.1  0.0      0     0 ?        I    18:37   0:01 [kworker/2:0-events]
+pluto       1001  0.1  0.2  15132  7052 ?        S    16:59   0:11 sshd: pluto@pts/0
+root        1202  0.1  0.0      0     0 ?        I    18:20   0:02 [kworker/1:0-events]
+root         372  0.0  0.8 288988 27324 ?        SLsl 16:57   0:05 /sbin/multipathd -d -s
+pluto@Ubuntu-Server-Lab:~$ ps aux --sort=-%mem | head -10
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root        1097  0.0  1.3 551920 41896 ?        Ssl  17:41   0:01 /usr/libexec/fwupd/fwupd
+root         372  0.0  0.8 288988 27324 ?        SLsl 16:57   0:05 /sbin/multipathd -d -s
+root         701  0.0  0.7 109640 23044 ?        Ssl  16:57   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         638  0.0  0.4 468976 13568 ?        Ssl  16:57   0:00 /usr/libexec/udisks2/udisksd
+root           1  0.0  0.4  22036 13184 ?        Ss   16:57   0:01 /sbin/init splash noprompt noshell automatic-ubiquity
+systemd+     441  0.0  0.4  21584 12996 ?        Ss   16:57   0:00 /usr/lib/systemd/systemd-resolved
+root         687  0.0  0.4 392032 12876 ?        Ssl  16:57   0:00 /usr/sbin/ModemManager
+root        1164  0.0  0.4  34188 12332 ?        S<s  17:55   0:00 /usr/lib/systemd/systemd-journald
+pluto        925  0.0  0.3  20276 11504 ?        Ss   16:58   0:00 /usr/lib/systemd/systemd --user
+pluto@Ubuntu-Server-Lab:~$
+```
+
+2. Eksplorasi top
+
+Kode Program:<br>
+```markdown
+top
+# Tekan M, P, 1 , u secara bergantian
+# Tekan q untuk keluar
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ top
+top - 18:54:28 up  1:57,  2 users,  load average: 0.00, 0.00, 0.00
+Tasks: 128 total,   2 running, 124 sleeping,   2 stopped,   0 zombie
+%Cpu0  :  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu1  :  0.4 us,  1.3 sy,  0.0 ni, 97.1 id,  0.0 wa,  0.0 hi,  1.3 si,  0.0 st
+%Cpu2  :  0.0 us,  1.2 sy,  0.0 ni, 98.8 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem : 12.0/2972.4   [|||||||||||                                                                                  ]
+MiB Swap:  0.0/0.0      [                                                                                             ]
+Which user (blank for all)
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   1001 pluto     20   0   15132   7052   5076 S   2.7   0.2   0:12.61 sshd
+   1206 root      20   0       0      0      0 I   1.5   0.0   0:04.31 kworker/2:2-events
+      1 root      20   0   22036  13184   9508 S   0.0   0.4   0:01.40 systemd
+      2 root      20   0       0      0      0 S   0.0   0.0   0:00.08 kthreadd
+      3 root      20   0       0      0      0 S   0.0   0.0   0:00.00 pool_workqueue_release
+      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-rcu_g
+      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-rcu_p
+      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-slub_
+      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-netns
+     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri
+     11 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/u6:0-ipv6_addrconf
+     12 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/R-mm_pe
+     13 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_kthread
+     14 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_rude_kthread
+     15 root      20   0       0      0      0 I   0.0   0.0   0:00.00 rcu_tasks_trace_kthread
+     16 root      20   0       0      0      0 S   0.0   0.0   0:00.17 ksoftirqd/0
+     17 root      20   0       0      0      0 I   0.0   0.0   0:01.39 rcu_preempt
+     18 root      rt   0       0      0      0 S   0.0   0.0   0:00.30 migration/0
+     19 root     -51   0       0      0      0 S   0.0   0.0   0:00.00 idle_inject/0
+     20 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/0
+     21 root      20   0       0      0      0 S   0.0   0.0   0:00.00 cpuhp/1
+[3]+  Stopped                 top
+```
+
+3. Menggunakan htop
+
+Kode Program:<br>
+```markdown
+sudo apt install -y htop
+htop
+# Tekan F6 untuk pilih kolom pengurutan
+# Tekan F10 atau q untuk keluar
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ sudo apt install -y htop
+[sudo] password for pluto:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+htop is already the newest version (3.3.0-4build1).
+htop set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+pluto@Ubuntu-Server-Lab:~$ htop
+pluto@Ubuntu-Server-Lab:~$
+```
+
+## Latihan 6.6
+
+1. Gunakan ps aux –sort=%mem untuk menemukan proses yang menggunakan memori paling banyak di VM Anda. Proses apa itu?
+**Jawab**<br>
+```markdown
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root        1097  0.0  1.3 551920 41896 ?        Ssl  17:41   0:01 /usr/libexec/fwupd/fwupd
+root         372  0.0  0.8 288988 27324 ?        SLsl 16:57   0:06 /sbin/multipathd -d -s
+root         701  0.0  0.7 109640 23044 ?        Ssl  16:57   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root        1164  0.0  0.4  50576 14092 ?        S<s  17:55   0:00 /usr/lib/systemd/systemd-journald
+root         638  0.0  0.4 468976 13568 ?        Ssl  16:57   0:00 /usr/libexec/udisks2/udisksd
+root           1  0.0  0.4  22036 13184 ?        Ss   16:57   0:01 /sbin/init splash noprompt noshell automatic-ubiquity
+systemd+     441  0.0  0.4  21584 12996 ?        Ss   16:57   0:00 /usr/lib/systemd/systemd-resolved
+root         687  0.0  0.4 392032 12876 ?        Ssl  16:57   0:00 /usr/sbin/ModemManager
+pluto        925  0.0  0.3  20276 11504 ?        Ss   16:58   0:00 /usr/lib/systemd/systemd --user
+pluto@Ubuntu-Server-Lab:~$ ps aux --sort=-%mem
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root        1097  0.0  1.3 551920 41896 ?        Ssl  17:41   0:01 /usr/libexec/fwupd/fwupd
+root         372  0.0  0.8 288988 27324 ?        SLsl 16:57   0:06 /sbin/multipathd -d -s
+root         701  0.0  0.7 109640 23044 ?        Ssl  16:57   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unatt
+root        1164  0.0  0.4  50576 14092 ?        S<s  17:55   0:00 /usr/lib/systemd/systemd-journald
+root         638  0.0  0.4 468976 13568 ?        Ssl  16:57   0:00 /usr/libexec/udisks2/udisksd
+root           1  0.0  0.4  22036 13184 ?        Ss   16:57   0:01 /sbin/init splash noprompt noshell automatic-ubiquity
+systemd+     441  0.0  0.4  21584 12996 ?        Ss   16:57   0:00 /usr/lib/systemd/systemd-resolved
+root         687  0.0  0.4 392032 12876 ?        Ssl  16:57   0:00 /usr/sbin/ModemManager
+pluto        925  0.0  0.3  20276 11504 ?        Ss   16:58   0:00 /usr/lib/systemd/systemd --user
+root         952  0.0  0.3  14972 10572 ?        Ss   16:59   0:00 sshd: pluto [priv]
+systemd+     486  0.0  0.3  19012  9516 ?        Ss   16:57   0:00 /usr/lib/systemd/systemd-networkd
+root        1104  0.0  0.3 314140  9300 ?        Ssl  17:41   0:00 /usr/libexec/upowerd
+root        1148  0.0  0.2  18000  8928 ?        Ss   17:55   0:00 /usr/lib/systemd/systemd-logind
+root         950  0.0  0.2  12024  8256 ?        Ss   16:59   0:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startu
+polkitd      626  0.0  0.2 308164  8108 ?        Ssl  16:57   0:00 /usr/lib/polkit-1/polkitd --no-debug
+systemd+    1158  0.0  0.2  91028  7952 ?        Ssl  17:55   0:00 /usr/lib/systemd/systemd-timesyncd
+pluto       1001  0.2  0.2  15132  7052 ?        S    16:59   0:19 sshd: pluto@pts/0
+root        1166  0.0  0.2  28024  6784 ?        Ss   17:55   0:00 /usr/lib/systemd/systemd-udevd
+syslog       670  0.0  0.2 222508  6136 ?        Ssl  16:57   0:00 /usr/sbin/rsyslogd -n -iNONE
+pluto       1002  0.0  0.1   8908  5972 pts/0    Ss   16:59   0:00 -bash
+pluto       1285  0.0  0.1  11912  5960 pts/0    T    18:52   0:00 top
+pluto       1222  0.0  0.1  11912  5956 pts/0    T    18:28   0:00 top
+pluto       1227  0.0  0.1  11912  5936 pts/0    T    18:32   0:00 top
+pluto        934  0.0  0.1   8788  5776 tty1     S+   16:58   0:00 -bash
+message+     618  0.0  0.1   9784  5596 ?        Ss   16:57   0:00 @dbus-daemon --system --address=systemd: --nofork --n
+root         814  0.0  0.1   6980  4904 tty1     Ss   16:57   0:00 /bin/login -p --
+pluto       1378  200  0.1  10884  4592 pts/0    R+   19:11   0:00 ps aux --sort=-%mem
+pluto        926  0.0  0.1  21152  3568 ?        S    16:58   0:00 (sd-pam)
+root         805  0.0  0.0   6824  2908 ?        Ss   16:57   0:00 /usr/sbin/cron -f -P
+root           2  0.0  0.0      0     0 ?        S    16:57   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    16:57   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-rcu_g]
+root           5  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-rcu_p]
+root           6  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-slub_]
+root           7  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/0:0H-events_highpri]
+root          11  0.0  0.0      0     0 ?        I    16:57   0:00 [kworker/u6:0-ipv6_addrconf]
+root          12  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-mm_pe]
+root          13  0.0  0.0      0     0 ?        I    16:57   0:00 [rcu_tasks_kthread]
+root          14  0.0  0.0      0     0 ?        I    16:57   0:00 [rcu_tasks_rude_kthread]
+root          15  0.0  0.0      0     0 ?        I    16:57   0:00 [rcu_tasks_trace_kthread]
+root          16  0.0  0.0      0     0 ?        S    16:57   0:00 [ksoftirqd/0]
+root          17  0.0  0.0      0     0 ?        I    16:57   0:01 [rcu_preempt]
+root          18  0.0  0.0      0     0 ?        S    16:57   0:00 [migration/0]
+root          19  0.0  0.0      0     0 ?        S    16:57   0:00 [idle_inject/0]
+root          20  0.0  0.0      0     0 ?        S    16:57   0:00 [cpuhp/0]
+root          21  0.0  0.0      0     0 ?        S    16:57   0:00 [cpuhp/1]
+root          22  0.0  0.0      0     0 ?        S    16:57   0:00 [idle_inject/1]
+root          23  0.0  0.0      0     0 ?        S    16:57   0:00 [migration/1]
+root          24  0.0  0.0      0     0 ?        S    16:57   0:00 [ksoftirqd/1]
+root          26  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/1:0H-kblockd]
+root          27  0.0  0.0      0     0 ?        S    16:57   0:00 [cpuhp/2]
+root          28  0.0  0.0      0     0 ?        S    16:57   0:00 [idle_inject/2]
+root          29  0.0  0.0      0     0 ?        S    16:57   0:00 [migration/2]
+root          30  0.0  0.0      0     0 ?        S    16:57   0:00 [ksoftirqd/2]
+root          36  0.0  0.0      0     0 ?        S    16:57   0:00 [kdevtmpfs]
+root          37  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-inet_]
+root          38  0.0  0.0      0     0 ?        S    16:57   0:00 [kauditd]
+root          39  0.0  0.0      0     0 ?        S    16:57   0:00 [khungtaskd]
+root          40  0.0  0.0      0     0 ?        S    16:57   0:00 [oom_reaper]
+root          42  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-write]
+root          43  0.0  0.0      0     0 ?        S    16:57   0:00 [kcompactd0]
+root          45  0.0  0.0      0     0 ?        SN   16:57   0:00 [ksmd]
+root          46  0.0  0.0      0     0 ?        SN   16:57   0:00 [khugepaged]
+root          47  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-kinte]
+root          48  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-kbloc]
+root          49  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-blkcg]
+root          50  0.0  0.0      0     0 ?        S    16:57   0:00 [irq/9-acpi]
+root          51  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-tpm_d]
+root          52  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-ata_s]
+root          53  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-md]
+root          54  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-md_bi]
+root          55  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-edac-]
+root          56  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-devfr]
+root          57  0.0  0.0      0     0 ?        S    16:57   0:00 [watchdogd]
+root          59  0.0  0.0      0     0 ?        S    16:57   0:00 [kswapd0]
+root          60  0.0  0.0      0     0 ?        S    16:57   0:00 [ecryptfs-kthread]
+root          61  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-kthro]
+root          62  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-acpi_]
+root          63  0.0  0.0      0     0 ?        S    16:57   0:00 [scsi_eh_0]
+root          64  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-scsi_]
+root          65  0.0  0.0      0     0 ?        S    16:57   0:00 [scsi_eh_1]
+root          66  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-scsi_]
+root          69  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-mld]
+root          70  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-ipv6_]
+root          71  0.0  0.0      0     0 ?        I    16:57   0:00 [kworker/u6:1-ext4-rsv-conversion]
+root          79  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-kstrp]
+root          83  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/u10:0]
+root          84  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/u11:0]
+root          85  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/u12:0]
+root          86  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/u13:0]
+root          91  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-crypt]
+root         105  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-charg]
+root         156  0.0  0.0      0     0 ?        S    16:57   0:00 [scsi_eh_2]
+root         157  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-scsi_]
+root         212  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-raid5]
+root         257  0.0  0.0      0     0 ?        S    16:57   0:00 [jbd2/sda2-8]
+root         258  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-ext4-]
+root         362  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-kmpat]
+root         363  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-kmpat]
+root         699  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-cfg80]
+root         706  0.0  0.0      0     0 ?        S    16:57   0:00 [irq/18-vmwgfx]
+root         708  0.0  0.0      0     0 ?        I<   16:57   0:00 [kworker/R-ttm]
+root         923  0.0  0.0      0     0 ?        S    16:58   0:00 [psimon]
+root        1018  0.0  0.0      0     0 ?        I<   17:00   0:00 [kworker/1:2H-kblockd]
+root        1061  0.0  0.0      0     0 ?        I<   17:20   0:00 [kworker/2:1H-kblockd]
+root        1087  0.0  0.0      0     0 ?        I    17:38   0:00 [kworker/u7:1-events_power_efficient]
+root        1169  0.0  0.0      0     0 ?        S    17:55   0:00 [psimon]
+root        1198  0.0  0.0      0     0 ?        I    18:17   0:00 [kworker/u9:3-events_unbound]
+root        1200  0.0  0.0      0     0 ?        I    18:17   0:02 [kworker/0:0-events]
+root        1206  0.2  0.0      0     0 ?        I    18:20   0:08 [kworker/2:2-events]
+root        1214  0.0  0.0      0     0 ?        I<   18:23   0:00 [kworker/0:2H-kblockd]
+root        1226  0.0  0.0      0     0 ?        I    18:30   0:00 [kworker/u8:1-events_power_efficient]
+root        1235  0.0  0.0      0     0 ?        I    18:35   0:00 [kworker/u8:3-events_power_efficient]
+root        1238  0.1  0.0      0     0 ?        I    18:37   0:02 [kworker/0:1-cgroup_destroy]
+root        1252  0.0  0.0      0     0 ?        I    18:43   0:00 [kworker/u9:1-events_unbound]
+root        1281  0.0  0.0      0     0 ?        I    18:50   0:00 [kworker/2:3]
+root        1283  0.5  0.0      0     0 ?        I    18:51   0:06 [kworker/1:2-mm_percpu_wq]
+root        1289  0.0  0.0      0     0 ?        I    18:56   0:00 [kworker/u9:0-events_unbound]
+root        1331  0.3  0.0      0     0 ?        I    19:00   0:02 [kworker/1:1-mm_percpu_wq]
+root        1338  0.0  0.0      0     0 ?        I<   19:05   0:00 [kworker/2:0H-kblockd]
+root        1341  0.0  0.0      0     0 ?        I    19:05   0:00 [kworker/u7:2-flush-8:0]
+root        1343  0.0  0.0      0     0 ?        I    19:05   0:00 [kworker/u8:0-events_freezable_power_]
+root        1374  0.0  0.0      0     0 ?        I    19:10   0:00 [kworker/0:2]
+root        1377  0.0  0.0      0     0 ?        I    19:11   0:00 [kworker/u8:2-events_power_efficient]
+```
+2. Di dalam top, tekan 1 . Apa yang berubah pada tampilan? Mengapa informasi ini berguna?
+**Jawab**<br>
+Awalnya, top menampilkan ringkasan CPU secara total (%Cpu(s):). Setelah menekan 1, tampilan baris CPU berubah menjadi per-core/prosesor.<br>
+Kegunaan:<br>
+- Mendeteksi ketidakseimbangan beban → Satu core sibuk (misal 100%), lainnya idle. Ini bisa menandakan aplikasi single-threaded menjadi bottleneck.
+
+- Optimasi aplikasi paralel → Jika beban merata, aplikasi sudah memanfaatkan multi-core dengan baik.
+
+- Diagnosis masalah performa → Core tertentu tinggi karena interupsi atau proses yang terikat ke CPU tertentu (CPU affinity).
+
+- Monitoring virtualisasi → Pada VM, bisa melihat apakah CPU virtual berjalan efisien atau ada throttling dari host.
+3. Di dalam htop, navigasikan ke proses sshd menggunakan tombol panah. Tekan F9 dan amati opsi sinyal yang tersedia.
+**Jawab**<br>
+Ketika menekan F9 maka muncul panel signal yang dapat dipilih, salah satunya merupakan SIGTERM / SIGKILL, dimana jika dipilih akan memberhentikan program. dapat digunakan dalam keadaan darurat
 
 

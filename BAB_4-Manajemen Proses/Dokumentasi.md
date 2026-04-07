@@ -507,5 +507,248 @@ Perintah yang berhasil secara logika (misal grep tidak menemukan pola) bisa teta
 
 - Konsistensi: Semua perintah yang berhasil mengembalikan 0, semua yang gagal mengembalikan nilai bukan 0. Tidak ada program sukses yang mengembalikan 1.
 
+## Praktikum 6.3
+1. Menjalankan proses dengan nice +10
+
+Kode Program:<br>
+```markdown
+nice -n 10 sleep 300 &
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ nice -n 10 sleep 300 &
+[1] 1040
+```
+
+2. Melihat nilai nice
+
+Kode Program:<br>
+```markdown
+ps aux | grep sleep
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ ps aux | grep sleep
+pluto       1040  0.0  0.0   5684  2104 pts/0    SN   15:51   0:00 sleep 300
+pluto       1042  0.0  0.0   5684  2108 pts/0    SN   15:51   0:00 sleep 300
+pluto       1044  0.0  0.0   6544  2332 pts/0    S+   15:52   0:00 grep --color=auto sleep
+```
+
+3. Mengubah nice dengan renice
+
+Kode Program:<br>
+```markdown
+renice -n 15 -p <PID >
+ps -p <PID > -o pid , ni , cmd
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ renice -n 15 -p 1061
+1061 (process ID) old priority 10, new priority 15
+pluto@Ubuntu-Server-Lab:~$ ps -p 1061 -o pid,ni,cmd
+    PID  NI CMD
+   1061  15 sleep 300
+```
+
+4. Menghentikan proses percobaan
+
+Kode Program:<br>
+```markdown
+kill %1
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ kill %1
+pluto@Ubuntu-Server-Lab:~$ 
+```
+
+## Latihan 6.3
+1. Jalankan nice -n 5 sleep 200 & dan verifikasi nilai NI-nya denganps.
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ nice -n 5 sleep 200 &
+[3] 1082
+pluto@Ubuntu-Server-Lab:~$ ps -l | grep sleep
+0 S  1000    1080    1030  0  90  10 -  1421 hrtime pts/0    00:00:00 sleep
+0 S  1000    1082    1030  0  85   5 -  1421 hrtime pts/0    00:00:00 sleep
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,ni,comm -C sleep
+    PID  NI COMMAND
+   1080  10 sleep
+   1082   5 sleep
+pluto@Ubuntu-Server-Lab:~$
+```
+2. Ubah nilai nice menjadi 10 menggunakan renice, lalu verifikasi kembali.
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ nice -n 5 sleep 200 &
+[1] 1102
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,ni,comm -C sleep
+    PID  NI COMMAND
+   1102   5 sleep
+pluto@Ubuntu-Server-Lab:~$ renice 10 -p 1102
+1102 (process ID) old priority 5, new priority 10
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,ni,comm -p 1102
+    PID  NI COMMAND
+   1102  10 sleep
+```
+3. Coba ubah nilai nice menjadi -5 tanpa sudo. Apa yang terjadi? Mengapa Linux membatasi hal ini untuk user biasa?
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ renice -5 -p 1102
+renice: failed to set priority for 1102 (process ID): Permission denied
+pluto@Ubuntu-Server-Lab:~$
+```
+Mengapa?<br>
+- Nice value negatif berarti menaikkan prioritas proses dibanding proses biasa (default 0).
+
+- Jika user biasa bisa menaikkan prioritas sesukanya, bisa terjadi starvasi proses lain atau penyalahgunaan resource CPU.
+
+- Hanya root (superuser) yang diizinkan menurunkan nice value ke negatif untuk menjaga stabilitas dan keadilan sistem.
+
+- User biasa hanya bisa menaikkan nice value (menurunkan prioritas) atau menurunkan nice value ke nilai yang lebih tinggi (tidak lebih kecil dari nilai saat ini jika tanpa hak istimewa).
+
+## Praktikum 6.4
+1. Membuat proses percobaan
+
+Kode Program:<br>
+```markdown
+sleep 500 &
+sleep 600 &
+sleep 700 &
+ps aux | grep -v grep | grep sleep
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ sleep 500 &
+sleep 600 &
+sleep 700 &
+ps aux | grep -v grep | grep sleep
+[1] 1124
+[2] 1125
+[3] 1126
+pluto       1124  0.0  0.0   5684  2108 pts/0    S    16:24   0:00 sleep 500
+pluto       1125  0.0  0.0   5684  2104 pts/0    S    16:24   0:00 sleep 600
+pluto       1126  0.0  0.0   5684  2104 pts/0    S    16:24   0:00 sleep 700
+pluto@Ubuntu-Server-Lab:~$
+```
+
+2. Menghentikan proses dengan SIGTERM
+
+Kode Program:<br>
+```markdown
+kill <PID - sleep -500 >
+ps aux | grep -v grep | grep sleep
+```
+
+Hasil Program:<br>
+```markdown
+pluto       1151 50.0  0.0   5684  2108 pts/0    S    16:28   0:00 sleep 500
+pluto       1152  0.0  0.0   5684  2104 pts/0    S    16:28   0:00 sleep 600
+pluto       1153  0.0  0.0   5684  2104 pts/0    S    16:28   0:00 sleep 700
+pluto@Ubuntu-Server-Lab:~$ kill 1151
+ps aux | grep -v grep | grep sleep
+pluto       1152  0.0  0.0   5684  2104 pts/0    S    16:28   0:00 sleep 600
+pluto       1153  0.0  0.0   5684  2104 pts/0    S    16:28   0:00 sleep 700
+[1]   Terminated              sleep 500
+pluto@Ubuntu-Server-Lab:~$
+```
+
+3. Menjeda dan melanjutkan proses
+
+Kode Program:<br>
+```markdown
+kill - SIGSTOP <PID - sleep -600 >
+ps aux | grep sleep # amati kolom STAT : berubah
+menjadi T
+kill - SIGCONT <PID - sleep -600 >
+ps aux | grep sleep # STAT kembali ke S
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ kill -SIGSTOP 1189
+pluto@Ubuntu-Server-Lab:~$ ps aux | grep sleep
+pluto       1152  0.0  0.0   5684  2104 pts/0    T    16:28   0:00 sleep 600
+pluto       1188  0.0  0.0   5684  2104 pts/0    S    16:34   0:00 sleep 500
+pluto       1189  0.0  0.0   5684  2104 pts/0    T    16:34   0:00 sleep 600
+pluto       1190  0.0  0.0   5684  2096 pts/0    S    16:34   0:00 sleep 700
+pluto       1195  0.0  0.0   6544  2328 pts/0    S+   16:34   0:00 grep --color=auto sleep
+
+[4]+  Stopped                 sleep 600
+pluto@Ubuntu-Server-Lab:~$ kill - SIGCONT 1189
+ps aux | grep sleep
+-bash: kill: : invalid signal specification
+pluto       1152  0.0  0.0   5684  2104 pts/0    T    16:28   0:00 sleep 600
+pluto       1188  0.0  0.0   5684  2104 pts/0    S    16:34   0:00 sleep 500
+pluto       1189  0.0  0.0   5684  2104 pts/0    T    16:34   0:00 sleep 600
+pluto       1190  0.0  0.0   5684  2096 pts/0    S    16:34   0:00 sleep 700
+pluto       1200  0.0  0.0   6544  2332 pts/0    S+   16:35   0:00 grep --color=auto sleep
+pluto@Ubuntu-Server-Lab:~$ kill -SIGCONT 1189
+```
+
+4. Menghentikan semua proses sleep
+
+Kode Program:<br>
+```markdown
+pkill sleep
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ pkill sleep
+[3]   Done                    sleep 500
+[4]-  Done                    sleep 600
+[5]+  Terminated              sleep 700
+pluto@Ubuntu-Server-Lab:~$
+```
+
+## Latihan 6.4
+
+1. Jalankan sleep 400 &, kirim SIGSTOP, dan amati perubahan kolom STAT. Kondisi apa yang muncul?
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ sleep 400 &
+[1] 1306
+pluto@Ubuntu-Server-Lab:~$ ps aux | grep sleep
+pluto       1306  0.0  0.0   5684  2108 pts/0    S    16:50   0:00 sleep 400
+pluto       1309  0.0  0.0   6544  2332 pts/0    S+   16:50   0:00 grep --color=auto sleep
+pluto@Ubuntu-Server-Lab:~$ kill -SIGSTOP 1306
+pluto@Ubuntu-Server-Lab:~$ ps aux | grep sleep
+pluto       1306  0.0  0.0   5684  2108 pts/0    T    16:50   0:00 sleep 400
+pluto       1311  0.0  0.0   6544  2328 pts/0    S+   16:50   0:00 grep --color=auto sleep
+
+[1]+  Stopped                 sleep 400
+pluto@Ubuntu-Server-Lab:~$
+```
+Status sleep diubah dari S menjadi T dan tidak memulai kembali, Tidak ada progress CPU, proses tetap di memori tapi tidak dijadwalkan.
+2. Kirim SIGCONT dan verifikasi proses kembali berjalan.
+**Jawab**<br>
+```markdown
+pluto       1306  0.0  0.0   5684  2108 pts/0    T    16:50   0:00 sleep 400
+pluto       1313 33.3  0.0   6544  2328 pts/0    S+   16:53   0:00 grep --color=auto sleep
+pluto@Ubuntu-Server-Lab:~$ kill -SIGCONT 1306
+pluto@Ubuntu-Server-Lab:~$ ps aux | grep sleep
+pluto       1306  0.0  0.0   5684  2108 pts/0    S    16:50   0:00 sleep 400
+pluto       1315 50.0  0.0   6544  2328 pts/0    S+   16:54   0:00 grep --color=auto sleep
+pluto@Ubuntu-Server-Lab:~$
+```
+3. Hentikan proses dengan SIGTERM lalu verifikasi sudah tidak ada. Kapan Anda memilih SIGKILL daripada SIGTERM?
+**Jawab**<br>
+```markdown
+pluto       1011  0.0  0.0   5684  2108 pts/0    S    16:59   0:00 sleep 400
+pluto       1013 33.3  0.0   6544  2328 pts/0    S+   16:59   0:00 grep --color=auto sleep
+pluto@Ubuntu-Server-Lab:~$ kill -SIGTERM 1011
+pluto@Ubuntu-Server-Lab:~$ ps aux | grep sleep
+pluto       1015  0.0  0.0   6544  2328 pts/0    S+   17:00   0:00 grep --color=auto sleep
+[1]+  Terminated              sleep 400
+pluto@Ubuntu-Server-Lab:~$
+```
+
+## Praktikum 6.5
 
 

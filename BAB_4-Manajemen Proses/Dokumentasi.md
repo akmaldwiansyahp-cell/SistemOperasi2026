@@ -814,6 +814,7 @@ jobs
 [1]   Terminated              sleep 200
 [2]-  Running                 sleep 300 &
 [3]+  Running                 sleep 400 &
+```
 
 ## Latihan 6.5
 

@@ -1097,4 +1097,109 @@ Kegunaan:<br>
 **Jawab**<br>
 Ketika menekan F9 maka muncul panel signal yang dapat dipilih, salah satunya merupakan SIGTERM / SIGKILL, dimana jika dipilih akan memberhentikan program. dapat digunakan dalam keadaan darurat
 
+## Latihan 6.A
+Eksplorasi Proses Sistem
+1. Jalankan ps aux –forest dan temukan proses dengan PID 1. Apa nama dan fungsi proses tersebut dalam sistem Linux modern?
+**Jawab**<br>
+Nama  : /sbin/init splash noprompt noshell automatic-ubiquity<br>
+Fungsi:
+- Inisialisasi sistem — memuat semua layanan dan modul kernel yang diperlukan
 
+- Manajemen proses — menjadi "orang tua" (parent) dari semua proses lain
+
+- Manajemen layanan — memulai, menghentikan, dan mengawasi daemon/layanan
+
+- Penanganan boot — mengelola urutan booting termasuk menampilkan splash screen 
+2. Hitung berapa proses yang dimiliki oleh user root dan berapa yang dimiliki oleh user Anda Mengapa root memiliki lebih banyak proses?
+**Jawab**<br>
+Terdapat 114 proses yang di miliki oleh user root dan terdapat 10 proses yang dimiliki oleh user root memiliki lebih banyak proses karena merupakan pengguna super yang bertanggung jawab untuk menjalankan semua layanan dan daemon sistem. Proses-proses ini meliputi manajer login (sshd atau gdm3), penjadwal tugas (cron), manajer jaringan (NetworkManager), server cetak (cupsd), dan masih banyak lagi. Layanan-layanan ini perlu berjalan di latar belakang sejak sistem dinyalakan terlepas dari apakah ada pengguna biasa yang masuk atau tidak
+3. Temukan semua proses yang berada dalam kondisi S. Mengapa sebagian besar proses di sistem berada dalam kondisi ini?
+**Jawab**<br>
+Sebagian besar proses berada dalam kondisi S (Interruptible Sleep) karena pada umumnya, sebuah proses lebih banyak menghabiskan waktu untuk menunggu suatu kejadian daripada benar-benar menggunakan CPU
+
+## Latihan 6.B
+Simulasi Manajemen Job
+1. Jalankan tiga perintah sleep dengan durasi 100, 200, dan 300 detik di background. Verifikasi ketiganya dengan jobs.
+**Jawab**<br>
+pluto@Ubuntu-Server-Lab:~$ sleep 100 &
+```markdown
+sleep 200 &
+sleep 300 &
+[1] 1043
+[2] 1044
+[3] 1045
+pluto@Ubuntu-Server-Lab:~$ jobs
+[1]   Running                 sleep 100 &
+[2]-  Running                 sleep 200 &
+[3]+  Running                 sleep 300 &
+```
+2. Bawa job kedua ke foreground, jeda dengan Ctrl+Z , lalu kembalikan ke background dengan bg.
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ fg %2
+sleep 200
+^Z
+[2]+  Stopped                 sleep 200
+pluto@Ubuntu-Server-Lab:~$ jobs
+[1]   Running                 sleep 100 &
+[2]+  Stopped                 sleep 200
+[3]-  Running                 sleep 300 &
+```
+3. Hentikan job pertama dengan kill %1. Tampilkan kembali daftar job. Berapa job yang tersisa?
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ kill %1
+pluto@Ubuntu-Server-Lab:~$ jobs
+[1]   Terminated              sleep 100
+[2]+  Stopped                 sleep 200
+[3]-  Running                 sleep 300 &
+pluto@Ubuntu-Server-Lab:~$
+```
+Job yang tersisa adalah 1 saja yaitu sleep 300
+
+## Latihan 6.C
+Prioritas dan Sinyal
+1. Jalankan dua proses sleep: satu dengan nice +5 dan satu dengan nice +15. Verifikasi nilai NI keduanya dengan ps.
+**Jawab**<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ nice -n 5 sleep 300 & nice -n 15 sleep 300 &
+[4] 1061
+[5] 1062
+[3]   Done                    sleep 300
+```
+2. Gunakan renice untuk mengubah nice proses pertama menjadi +10. Proses mana yang kini lebih diprioritaskan scheduler?
+**Jawab**<br>
+```markdown
+renice -n 10 -p 1061
+1061 (process ID) old priority 5, new priority 10
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,ni,comm,args | grep sleep
+   1044   0 sleep           sleep 200
+   1061  10 sleep           sleep 300
+   1062  15 sleep           sleep 300
+   1073   0 grep            grep --color=auto sleep
+```
+Yang diprioritaskan adalah yang memiliki NIP terendah yaitu 10
+3. Kirim SIGSTOP ke salah satu proses, verifikasi kondisi T-nya, lalu kirim SIGCONT. Akhiri semua proses percobaan dengan pkill sleep.
+**Jawab**<br>
+```markdown
+ kill -SIGSTOP 1062
+
+[5]+  Stopped                 nice -n 15 sleep 300
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,ni,comm,args | grep sleep
+   1044   0 sleep           sleep 200
+   1061  10 sleep           sleep 300
+   1062  15 sleep           sleep 300
+   1075   0 grep            grep --color=auto sleep
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,stat,comm | grep sleep
+   1044 T    sleep
+   1061 SN   sleep
+   1062 TN   sleep
+pluto@Ubuntu-Server-Lab:~$ kill -SIGCONT 1062
+pluto@Ubuntu-Server-Lab:~$ ps -o pid,stat,comm | grep sleep
+   1044 T    sleep
+   1061 SN   sleep
+   1062 SN   sleep
+pluto@Ubuntu-Server-Lab:~$ pkill sleep
+[4]   Terminated              nice -n 5 sleep 300
+[5]-  Terminated              nice -n 15 sleep 300
+```

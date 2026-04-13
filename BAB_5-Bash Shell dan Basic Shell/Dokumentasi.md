@@ -990,8 +990,9 @@ echo *.log
 echo access-0?.log
 ```
 
-```markdown
+
 Hasil Program:<br>
+```markdown
 pluto@Ubuntu-Server-Lab:~/praktikum-os/week07-bash/logs$ echo *.log
 echo access-0?.log
 access-01.log access-02.log access-03.log app-01.log app-02.log app-03.log
@@ -1090,8 +1091,10 @@ pluto@Ubuntu-Server-Lab:~/praktikum-os/week07-bash/ruang-nama$
 1. Memastikan file target tersedia
 
 Kode Program:<br>
+```markdown
 cd ~/praktikum-os/week07-bash/ruang-nama
 ls -lah
+```
 
 Hasil Program:<br>
 ```markdown

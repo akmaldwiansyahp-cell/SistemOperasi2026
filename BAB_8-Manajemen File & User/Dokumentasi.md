@@ -701,8 +701,157 @@ sudo setquota -u userA 5120 10240 5 10 /mnt/quota-test
 Hasil Program:<br>
 ```markdown
 pluto@Ubuntu-Server-Lab:~$ sudo setquota -u userA 5120 10240 5 10 /mnt/quota-test
-
 ```
+
+## Latihan 9.A
+
+1. Temukan file SUID aktif dengan find / -perm -4000 -type f 2>/dev/null, lalu jelaskan tiga file yang Anda kenali beserta alasannya.
+2. Cari direktori world-writable dan tentukan mana yang valid dan mana yang berisiko.
+3. Rancang konfigurasi permission standar dan ACL untuk direktori proyek /srv/webapp/ agar group webapp-team dapat menulis, user deploy hanya membaca, dan file baru selalu mewarisi group proyek.
+
+Kode Program:<br>
+```markdown
+find / -perm -4000 -type f 2>/dev/null
+
+find / -type d -perm -0002 2>/dev/null
+
+sudo mkdir -p /srv/webapp
+sudo chown root:webapp-team /srv/webapp
+sudo chmod 2770 /srv/webapp
+
+sudo setfacl -m u:deploy:r-x /srv/webapp
+
+sudo setfacl -d -m g:webapp-team:rwx /srv/webapp
+sudo setfacl -d -m u:deploy:r-x /srv/webapp
+
+getfacl /srv/webapp
+```
+
+Kode Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ find / -perm -4000 -type f 2>/dev/null
+
+/usr/bin/mount
+/usr/bin/chsh
+/usr/bin/newgrp
+/usr/bin/su
+/usr/bin/umount
+/usr/bin/passwd
+/usr/bin/chfn
+/usr/bin/gpasswd
+/usr/bin/fusermount3
+/usr/bin/sudo
+/usr/lib/openssh/ssh-keysign
+/usr/lib/polkit-1/polkit-agent-helper-1
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+pluto@Ubuntu-Server-Lab:~$
+pluto@Ubuntu-Server-Lab:~$ find / -type d -perm -0002 2>/dev/null
+/var/crash
+/var/tmp
+/run/screen
+/run/lock
+/tmp
+/tmp/.ICE-unix
+/tmp/.font-unix
+/tmp/.XIM-unix
+/tmp/.X11-unix
+/dev/mqueue
+/dev/shm
+pluto@Ubuntu-Server-Lab:~$ sudo mkdir -p /srv/webapp
+sudo chown root:webapp-team /srv/webapp
+sudo chmod 2770 /srv/webapp
+
+sudo setfacl -m u:deploy:r-x /srv/webapp
+
+sudo setfacl -d -m g:webapp-team:rwx /srv/webapp
+sudo setfacl -d -m u:deploy:r-x /srv/webapp
+
+getfacl /srv/webapp
+chown: invalid group: ‘root:webapp-team’
+setfacl: Option -m: Invalid argument near character 3
+setfacl: Option -m: Invalid argument near character 3
+setfacl: Option -m: Invalid argument near character 3
+getfacl: Removing leading '/' from absolute path names
+# file: srv/webapp
+# owner: root
+# group: root
+# flags: -s-
+user::rwx
+group::rwx
+other::---
+
+pluto@Ubuntu-Server-Lab:~$
+```
+
+## Latihan 9.B
+
+Tuliskan langkah untuk membuat user intern, menambahkannya ke group labgroup, memaksa pergantian password tiap 45 hari (warning 7 hari), memberi izin sudo hanya untuk systemctl status, dan menetapkan quota ruang serta inode sederhana pada /home/.<br>
+
+Kode Program:<br>
+```markdown
+sudo useradd -m -s /bin/bash intern
+sudo passwd intern
+
+sudo usermod -aG labgroup intern
+
+sudo chage -M 45 -W 7 -d 0 intern
+
+echo "intern ALL=(root) /bin/systemctl status *" | sudo tee /etc/sudoers.d/intern-systemctl
+sudo visudo -c  # validasi syntax
+
+sudo setquota -u intern 1024000 1536000 5000 7500 /home
+# soft block: 1GB, hard block: 1.5GB, soft inode: 5000, hard inode: 7500
+
+sudo quota -u intern
+sudo chage -l intern
+sudo -l -U intern
+```
+
+Hasil Program:<br>
+```markdown
+pluto@Ubuntu-Server-Lab:~$ sudo useradd -m -s /bin/bash intern
+sudo passwd intern
+
+sudo usermod -aG labgroup intern
+
+sudo chage -M 45 -W 7 -d 0 intern
+
+echo "intern ALL=(root) /bin/systemctl status *" | sudo tee /etc/sudoers.d/intern-systemctl
+sudo visudo -c  # validasi syntax
+
+sudo setquota -u intern 1024000 1536000 5000 7500 /home
+# soft block: 1GB, hard block: 1.5GB, soft inode: 5000, hard inode: 7500
+
+sudo quota -u intern
+sudo chage -l intern
+sudo -l -U intern
+useradd: user 'intern' already exists
+New password:
+Retype new password:
+passwd: password updated successfully
+intern ALL=(root) /bin/systemctl status *
+/etc/sudoers: parsed OK
+/etc/sudoers.d/README: parsed OK
+/etc/sudoers.d/intern-systemctl: bad permissions, should be mode 0440
+/etc/sudoers.d/lab-userA: bad permissions, should be mode 0440
+setquota: Mountpoint (or device) /home not found or has no quota enabled.
+setquota: Not all specified mountpoints are using quota.
+Last password change                                    : password must be changed
+Password expires                                        : password must be changed
+Password inactive                                       : password must be changed
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 45
+Number of days of warning before password expires       : 7
+Matching Defaults entries for intern on Ubuntu-Server-Lab:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
+
+User intern may run the following commands on Ubuntu-Server-Lab:
+    (root) /bin/systemctl status *
+pluto@Ubuntu-Server-Lab:~$
+```
+
 
 
 
